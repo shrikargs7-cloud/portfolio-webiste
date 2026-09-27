@@ -234,7 +234,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
                 </span>
               </h2>
               <p className="text-[#73675E] text-sm sm:text-base md:text-lg max-w-lg font-light leading-relaxed">
-                Open to Software Engineering (SWE), Agentic AI, Computer Vision, and full-stack distributed systems roles. Whether you have an ambitious vacancy or a challenging problem to solve, I'm ready to ship impact.
+                Actively seeking opportunities in Software Engineering, Agentic AI, and distributed systems. I bring a rigorous engineering mindset and a track record of delivering high-impact, scalable solutions.
               </p>
             </div>
 
@@ -446,8 +446,8 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
               />
             </svg>
           </div>
-          <p className="font-google text-xs sm:text-sm text-[#73675E] max-w-md font-light italic">
-            &ldquo;Crafted with obsessive precision, engineered for scale, and designed to move human progress forward.&rdquo;
+          <p className="font-google text-xs sm:text-sm text-[#73675E] max-w-lg font-light italic">
+            &ldquo;Committed to engineering excellence, scalable architectures, and developing intelligent systems that drive measurable impact.&rdquo;
           </p>
         </div>
 
