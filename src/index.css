@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&display=swap');
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLU94YtzCwM.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesans/v14/4UabrENHsxJlGDuGo1OIlLV154tzCwM.woff2) format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent-color: #C75D35; /* Terracotta / Warm Cocoa Accent */
+  --hero-bg: #F5F1EB; /* Warm Oat Background */
+  --text-main: #2B231D;
+  --text-muted: #73675E;
+}
+
+body {
+  background-color: var(--hero-bg);
+  color: var(--text-main);
+  font-family: 'Google Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-google {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.font-serif-pepite {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-signature {
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Base custom apple-style glass class used in multiple components */
+.apple-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(43, 35, 29, 0.05);
+  box-shadow: 0 4px 20px rgba(43, 35, 29, 0.05);
+}
+
+.apple-glass-dark {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(43, 35, 29, 0.05);
+  box-shadow: 0 10px 40px rgba(43, 35, 29, 0.08);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #2B231D 0%, #73675E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle continuous animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.98); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
