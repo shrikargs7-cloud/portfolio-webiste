@@ -119,7 +119,6 @@ export default function InteractiveTerminal({ setCursorState }) {
                 onChange={(e) => setInputVal(e.target.value)}
                 placeholder="type 'about', 'projects', 'skills'..."
                 className="flex-1 bg-transparent text-[#2B231D] focus:outline-none placeholder:text-slate-600"
-                autoFocus
                 spellCheck="false"
               />
               <button type="submit" className="text-[#515154] hover:text-[#C75D35] transition-colors">

@@ -55,47 +55,7 @@ const INJECTED_STYLES = `
   }
 `;
 
-const SITEMAP_COLUMNS = [
-  {
-    title: "Navigation",
-    links: [
-      { label: "01 // Hero Overview", id: "top" },
-      { label: "02 // About & Pillars", id: "about" },
-      { label: "03 // Featured Projects", id: "projects" },
-      { label: "04 // Metrics & Commits", id: "dashboard" },
-      { label: "05 // Skills & Stack", id: "skills" },
-    ]
-  },
-  {
-    title: "Deep Dive",
-    links: [
-      { label: "06 // Verified Credentials", id: "certificates" },
-      { label: "07 // Milestones & Radar", id: "experience" },
-      { label: "08 // R&D Playground", id: "playground" },
-      { label: "09 // Web Architectures", id: "web-design" },
-      { label: "10 // System Whitepapers", id: "performance" },
-      { label: "11 // Interactive Shell", id: "vibe-terminal" },
-    ]
-  },
-  {
-    title: "Connect",
-    links: [
-      { label: "GitHub Profile", href: "https://github.com/shrikargs7-cloud", external: true },
-      { label: "LinkedIn Network", href: "https://linkedin.com", external: true },
-      { label: "LeetCode Practice", href: "https://leetcode.com", external: true },
-      { label: "Direct Email", href: "mailto:shrikar.gs.design@gmail.com", external: true },
-    ]
-  },
-  {
-    title: "Engineering Specs",
-    specs: [
-      { key: "Role Focus", value: "SWE & AI/ML Engineer" },
-      { key: "University", value: "RV University (B.Tech)" },
-      { key: "Location", value: "Bengaluru, India" },
-      { key: "Status", value: "Available for Roles" },
-    ]
-  }
-];
+
 
 export default function ContactFooter({ setCursorState, onNavigate }) {
   const cardRef = useRef(null);
@@ -451,77 +411,42 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
           </p>
         </div>
 
-        <div className="pt-10 border-t border-[#2B231D]/10 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-          {SITEMAP_COLUMNS.map((col, idx) => (
-            <div key={idx} className="space-y-3">
-              <h4 className="font-mono text-xs font-bold text-[#C75D35] uppercase tracking-wider">
-                {col.title}
-              </h4>
-              {col.links && (
-                <ul className="space-y-2">
-                  {col.links.map((link, lIdx) => (
-                    <li key={lIdx}>
-                      {link.external ? (
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="font-google text-xs text-[#73675E] hover:text-[#2B231D] transition-colors inline-flex items-center gap-1.5"
-                        >
-                          {link.label}
-                          <ArrowUpRight className="w-3 h-3 opacity-60" />
-                        </a>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => onNavigate && onNavigate(link.id)}
-                          className="font-google text-xs text-[#73675E] hover:text-[#2B231D] transition-colors text-left"
-                        >
-                          {link.label}
-                        </button>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {col.specs && (
-                <ul className="space-y-2">
-                  {col.specs.map((item, sIdx) => (
-                    <li key={sIdx} className="font-mono text-[11px] leading-tight">
-                      <span className="text-[#73675E]">{item.key}: </span>
-                      <span className="text-[#2B231D] font-medium">{item.value}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="pt-6 border-t border-[#2B231D]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-google text-[#73675E]">
-          <div className="flex flex-wrap items-center gap-2 text-center sm:text-left">
-            <span>&copy; {new Date().getFullYear()} G S Shrikar.</span>
-            <span className="hidden sm:inline">&bull;</span>
-            <span>Bengaluru, India (IST: {currentTime || "Active"})</span>
+        <div className="pt-16 pb-8 flex flex-col items-center justify-center space-y-6">
+          {/* Row 1: Minimalist Links */}
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 font-google text-xs sm:text-sm text-[#73675E]">
+            <button onClick={() => onNavigate && onNavigate('top')} className="hover:text-[#2B231D] transition-colors">Overview</button>
+            <button onClick={() => onNavigate && onNavigate('about')} className="hover:text-[#2B231D] transition-colors">About</button>
+            <button onClick={() => onNavigate && onNavigate('projects')} className="hover:text-[#2B231D] transition-colors">Projects</button>
+            <button onClick={() => onNavigate && onNavigate('dashboard')} className="hover:text-[#2B231D] transition-colors">Metrics</button>
+            <button onClick={() => onNavigate && onNavigate('skills')} className="hover:text-[#2B231D] transition-colors">Skills</button>
+            <button onClick={() => onNavigate && onNavigate('vibe-terminal')} className="hover:text-[#2B231D] transition-colors">Terminal</button>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              All Systems Operational
-            </span>
+          {/* Row 2: Minimalist Outline Icons */}
+          <div className="flex items-center justify-center gap-6 text-[#73675E]">
+            <a href="https://github.com/shrikargs7-cloud" target="_blank" rel="noreferrer" className="hover:text-[#2B231D] transition-colors">
+              <Github className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-[#2B231D] transition-colors">
+              <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            </a>
+            <a href={`mailto:${email}`} className="hover:text-[#2B231D] transition-colors">
+              <Mail className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            </a>
+            <button onClick={() => handleCopy()} className="hover:text-[#2B231D] transition-colors">
+              {copied ? <Check className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />}
+            </button>
+            <button onClick={() => onNavigate && onNavigate('vibe-terminal')} className="hover:text-[#2B231D] transition-colors">
+              <Terminal className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            </button>
+            <button onClick={handleScrollToTop} className="hover:text-[#2B231D] transition-colors">
+              <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            </button>
+          </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleScrollToTop}
-              onMouseEnter={() => setCursorState && setCursorState({ label: "Top" })}
-              onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-              className="px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#2B231D]/10 hover:border-[#C75D35] text-[#2B231D] hover:text-[#C75D35] flex items-center gap-1.5 shadow-xs transition-colors"
-            >
-              <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </motion.button>
+          {/* Row 3: Copyright */}
+          <div className="text-center font-google text-xs sm:text-sm text-[#73675E] opacity-80 pt-2">
+            &copy; {new Date().getFullYear()} G S Shrikar, All rights reserved
           </div>
         </div>
 
