@@ -11,7 +11,7 @@ export default function PlaygroundGrid({ setCursorState }) {
       type: 'On-Device Mobile AI',
       tag: 'OCR & SLM',
       description: 'Understanding real-world visual & textual context using on-device ML, small language models (Gemma/Phi), SQLite, and local FAISS vector search.',
-      link: '#projects'
+      link: 'https://github.com/shrikargs7-cloud/ContextLens'
     },
     {
       id: 'hermes',
@@ -19,7 +19,7 @@ export default function PlaygroundGrid({ setCursorState }) {
       type: 'Embedded Local Server',
       tag: 'Edge AI & IoT',
       description: 'An ESP32-based local web server and local AI-agent experimentation project exposing telemetry and status through responsive web interfaces.',
-      link: '#projects'
+      link: 'https://github.com/shrikargs7-cloud/HermesESP32-WebServer'
     },
     {
       id: 'smart-trolley',
@@ -27,7 +27,7 @@ export default function PlaygroundGrid({ setCursorState }) {
       type: 'Embedded Automation',
       tag: 'IoT Retail',
       description: 'Smart retail cart concept designed to automate item tracking and enhance the shopping experience through embedded intelligence and sensors.',
-      link: '#projects'
+      link: 'https://github.com/shrikargs7-cloud/smart-shopping-trolley'
     },
     {
       id: 'smart-street-light',
@@ -35,7 +35,7 @@ export default function PlaygroundGrid({ setCursorState }) {
       type: 'Autonomous IoT',
       tag: 'Sensors & Microcontrollers',
       description: 'Context-aware automated lighting concept optimizing energy consumption based on environmental threshold detection.',
-      link: '#projects'
+      link: 'https://github.com/shrikargs7-cloud/smart-street-light-project'
     },
     {
       id: 'receipt-keeper',
@@ -43,7 +43,7 @@ export default function PlaygroundGrid({ setCursorState }) {
       type: 'Mobile Productivity',
       tag: 'Data Persistence',
       description: 'A personal receipt-management application designed to help users digitally organize, track, and manage receipts with local persistence.',
-      link: '#projects'
+      link: 'https://github.com/shrikargs7-cloud/ReceiptKeeper'
     }
   ];
 
@@ -85,47 +85,49 @@ export default function PlaygroundGrid({ setCursorState }) {
             const rotations = [-4, 3, -2];
             const rot = rotations[idx % rotations.length];
             return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.82, y: 25, rotate: rot * 2 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ scale: 1.03, y: -8, rotate: rot * 0.5 }}
-                transition={{ type: "spring", stiffness: 220, damping: 20, delay: idx * 0.1 }}
-                onMouseEnter={() => setCursorState && setCursorState({ label: 'Explore' })}
-                onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-                className="relative rounded-3xl p-7 border border-[#2B231D]/5 hover:border-[#D09B65]/50 transition-all duration-500 group flex flex-col justify-between bg-[#FFFFFF]/40 backdrop-blur-xl shadow-2xl hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] overflow-hidden"
-              >
-                {/* Tech Reticle Corners */}
-                <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
-                <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
+              <a href={item.link} target="_blank" rel="noreferrer" key={item.id} className="block group h-full">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.82, y: 25, rotate: rot * 2 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{ scale: 1.03, y: -8, rotate: rot * 0.5 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 20, delay: idx * 0.1 }}
+                  onMouseEnter={() => setCursorState && setCursorState({ label: 'GitHub' })}
+                  onMouseLeave={() => setCursorState && setCursorState({ label: null })}
+                  className="relative h-full rounded-3xl p-7 border border-[#2B231D]/5 group-hover:border-[#D09B65]/50 transition-all duration-500 flex flex-col justify-between bg-[#FFFFFF]/40 backdrop-blur-xl shadow-2xl group-hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] overflow-hidden"
+                >
+                  {/* Tech Reticle Corners */}
+                  <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
+                  <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
+                  <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
+                  <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
 
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-[#F5F1EB]/80 border border-[#2B231D]/5 font-mono text-[11px] text-[#73675E]">
-                      {item.type}
-                    </span>
-                    <span className="px-3 py-1 rounded-full bg-[#C75D35]/10 border border-[#D09B65]/20 font-mono text-[11px] text-[#C75D35]">
-                      {item.tag}
-                    </span>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="px-3 py-1 rounded-full bg-[#F5F1EB]/80 border border-[#2B231D]/5 font-mono text-[11px] text-[#73675E]">
+                        {item.type}
+                      </span>
+                      <span className="px-3 py-1 rounded-full bg-[#C75D35]/10 border border-[#D09B65]/20 font-mono text-[11px] text-[#C75D35]">
+                        {item.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="font-google text-2xl font-bold text-[#2B231D] group-hover:text-[#C75D35] transition-colors duration-500">
+                      {item.title}
+                    </h3>
+                    <p className="font-google text-sm text-[#73675E] leading-relaxed font-light">
+                      {item.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-google text-2xl font-bold text-[#2B231D] group-hover:text-[#C75D35] transition-colors duration-500">
-                    {item.title}
-                  </h3>
-                  <p className="font-google text-sm text-[#73675E] leading-relaxed font-light">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="pt-6  flex justify-end">
-                  <div className="p-2 rounded-full bg-[#F5F1EB]/80 text-[#73675E] group-hover:bg-[#C75D35] group-hover:text-slate-950 transition-all duration-300 shadow-lg">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <div className="pt-6 mt-auto flex justify-end">
+                    <div className="p-2 rounded-full bg-[#F5F1EB]/80 text-[#73675E] group-hover:bg-[#C75D35] group-hover:text-white transition-all duration-300 shadow-lg flex items-center gap-2">
+                      <span className="text-[10px] uppercase font-bold tracking-widest hidden group-hover:inline-block font-mono pl-2">View Code</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </a>
             );
           })}
         </div>

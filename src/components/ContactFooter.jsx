@@ -134,7 +134,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
   useEffect(() => {
     if (isInView) {
       let start = 0;
-      const end = 480;
+      const end = 200;
       const duration = 1500;
       const startTime = performance.now();
 
@@ -394,7 +394,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[#2B231D] text-xs font-semibold tracking-tight font-google">480+ Commits</p>
+                  <p className="text-[#2B231D] text-xs font-semibold tracking-tight font-google">200+ Commits</p>
                   <p className="text-[#73675E] text-[10px] font-google">Verified Activity</p>
                 </div>
               </motion.div>

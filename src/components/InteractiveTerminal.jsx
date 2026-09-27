@@ -43,7 +43,11 @@ export default function InteractiveTerminal({ setCursorState }) {
         newHistory.push({ type: 'output', text: '1. OcuPulse (Medical Vision)  2. Agent Swarm (World Cup Winner)  3. Vega AI  4. Prior Auth Bot  5. AI Visual Matching  6. ContextLens  7. Hermes ESP32' });
         break;
       case 'github':
-        newHistory.push({ type: 'output', text: 'GitHub: https://github.com/shrikargs7-cloud — 14 public repositories across Agentic AI, Medical Vision, RAG & Full-Stack.' });
+        newHistory.push({ type: 'output', text: (
+          <span>
+            GitHub: <a href="https://github.com/shrikargs7-cloud" target="_blank" rel="noreferrer" className="text-[#C75D35] hover:underline">https://github.com/shrikargs7-cloud</a> — 14 public repositories across Agentic AI, Medical Vision, RAG & Full-Stack.
+          </span>
+        ) });
         break;
       case 'leetcode':
         newHistory.push({ type: 'output', text: 'LeetCode: 250+ Problems solved across Data Structures & Algorithms, dynamic programming, and graphs.' });
@@ -101,7 +105,7 @@ export default function InteractiveTerminal({ setCursorState }) {
                 key={i} 
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                className={h.type === 'input' ? 'text-[#C75D35] font-medium' : 'text-[#73675E] font-light'}
+                className={h.type === 'input' ? 'text-[#C75D35] font-medium' : 'text-[#73675E] font-light flex items-center gap-2 flex-wrap'}
               >
                 {h.type === 'input' ? `visitor@portfolio:~$ ${h.text}` : h.text}
               </motion.div>

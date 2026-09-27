@@ -28,7 +28,8 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/shrikargs7-cloud/ocupulse-dr',
     demo: 'https://github.com/shrikargs7-cloud/Ocupulse',
     color: 'border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-400/80',
-    accent: 'text-emerald-400'
+    accent: 'text-emerald-400',
+    image: '/assets/projects/ocupulse.jpg'
   },
   {
     id: 'agent-swarm',
@@ -54,7 +55,8 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/shrikargs7-cloud/finops-multi-agent-swarm-optimizer',
     demo: null,
     color: 'border-purple-500/30 bg-purple-500/5 hover:border-purple-400/80',
-    accent: 'text-purple-400'
+    accent: 'text-purple-400',
+    image: '/assets/projects/agentswarm.jpg'
   },
   {
     id: 'vega',
@@ -79,7 +81,8 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/shrikargs7-cloud/vega-ai',
     demo: null,
     color: 'border-sky-500/30 bg-sky-500/5 hover:border-sky-400/80',
-    accent: 'text-sky-400'
+    accent: 'text-sky-400',
+    image: '/assets/projects/vega.jpg'
   },
   {
     id: 'prior-auth-bot',
@@ -104,7 +107,8 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/shrikargs7-cloud',
     demo: null,
     color: 'border-lime-500/30 bg-lime-500/5 hover:border-lime-400/80',
-    accent: 'text-lime-400'
+    accent: 'text-lime-400',
+    image: '/assets/projects/priorauth.jpg'
   },
   {
     id: 'ai-visual-matching',
@@ -130,7 +134,8 @@ export const PROJECTS_DATA = [
     github: 'https://github.com/shrikargs7-cloud/context_AI',
     demo: null,
     color: 'border-cyan-500/30 bg-cyan-500/5 hover:border-cyan-400/80',
-    accent: 'text-cyan-400'
+    accent: 'text-cyan-400',
+    image: '/assets/projects/visualmatch.jpg'
   },
   {
     id: 'context-lens',

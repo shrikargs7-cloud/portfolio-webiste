@@ -124,29 +124,38 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 </motion.div>
               </div>
 
-              {/* Animated Floating Data UI */}
+              {/* Animated Floating Data UI / Image */}
               <motion.div 
                 whileHover={{ scale: 1.02, rotateY: -5, rotateX: 5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="flex-1 w-full h-[220px] sm:h-[260px] md:h-full md:max-h-[380px] relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-[#2B231D]/10 bg-gradient-to-br from-[#F5F1EB] to-[#FFFFFF] shadow-xl perspective-1000 shrink-0"
+                className="flex-1 w-full h-[220px] sm:h-[260px] md:h-full md:max-h-[380px] relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-[#2B231D]/10 bg-[#1A1511] shadow-xl perspective-1000 shrink-0 group/img"
               >
+                {project.image ? (
+                  <div className="absolute inset-0 w-full h-full">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover/img:opacity-100 transition-all duration-700 group-hover/img:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  </div>
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#F5F1EB] to-[#FFFFFF]" />
+                )}
+
                 {/* Ambient Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#C75D35]/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-[#C75D35]/20 transition-colors duration-1000" />
                 
                 {/* Mock UI Overlay */}
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.8 }}
-                  className="absolute inset-8 border border-[#2B231D]/5 bg-[#FFFFFF]/60 backdrop-blur-md rounded-2xl flex flex-col p-6 font-google shadow-lg"
+                  className={`absolute inset-4 md:inset-8 border border-[#FFFFFF]/10 ${project.image ? 'bg-[#1A1511]/40 text-white' : 'bg-[#FFFFFF]/60 text-[#2B231D] border-[#2B231D]/5'} backdrop-blur-xl rounded-2xl flex flex-col p-4 md:p-6 font-google shadow-2xl`}
                 >
-                  <div className="flex justify-between items-center mb-8 border-b border-[#2B231D]/5 pb-4">
+                  <div className={`flex justify-between items-center mb-8 border-b ${project.image ? 'border-[#FFFFFF]/10' : 'border-[#2B231D]/5'} pb-4`}>
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-400" />
                       <div className="w-3 h-3 rounded-full bg-amber-400" />
                       <div className="w-3 h-3 rounded-full bg-emerald-400" />
                     </div>
-                    <span className="text-[#C75D35] text-xs font-mono font-medium tracking-wider">system.process({project.shortName})</span>
+                    <span className={`${project.image ? 'text-[#FFFFFF]/70' : 'text-[#C75D35]'} text-xs font-mono font-medium tracking-wider`}>system.process({project.shortName})</span>
                   </div>
                   
                   {/* Staggered Animated Lines */}
@@ -156,34 +165,34 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                         initial={{ width: 0 }}
                         whileInView={{ width: "75%" }}
                         transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-                        className="h-3 bg-[#EAE2D6] rounded-full overflow-hidden relative"
+                        className={`h-3 ${project.image ? 'bg-[#FFFFFF]/20' : 'bg-[#EAE2D6]'} rounded-full overflow-hidden relative`}
                       >
                          <motion.div 
                            animate={{ x: ["-100%", "200%"] }}
                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                           className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-[#FFFFFF]/80 to-transparent"
+                           className={`absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent ${project.image ? 'via-[#FFFFFF]/30' : 'via-[#FFFFFF]/80'} to-transparent`}
                          />
                       </motion.div>
-                      <Sparkles className="w-4 h-4 text-[#C75D35] opacity-50" />
+                      <Sparkles className={`w-4 h-4 ${project.image ? 'text-[#FFFFFF]' : 'text-[#C75D35]'} opacity-50`} />
                     </div>
                     
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "50%" }}
                       transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
-                      className="h-3 bg-[#2B231D]/10 rounded-full" 
+                      className={`h-3 ${project.image ? 'bg-[#FFFFFF]/10' : 'bg-[#2B231D]/10'} rounded-full`} 
                     />
                     
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "85%" }}
                       transition={{ delay: 1.4, duration: 1, ease: "easeOut" }}
-                      className="h-3 bg-[#2B231D]/10 rounded-full" 
+                      className={`h-3 ${project.image ? 'bg-[#FFFFFF]/10' : 'bg-[#2B231D]/10'} rounded-full`} 
                     />
 
                     <div className="pt-8 flex justify-between items-end opacity-50">
-                       <div className="w-16 h-16 rounded-xl border-2 border-dashed border-[#2B231D]/20 animate-[spin_10s_linear_infinite]" />
-                       <div className="w-1/3 h-2 bg-[#2B231D]/10 rounded-full" />
+                       <div className={`w-16 h-16 rounded-xl border-2 border-dashed ${project.image ? 'border-[#FFFFFF]/20' : 'border-[#2B231D]/20'} animate-[spin_10s_linear_infinite]`} />
+                       <div className={`w-1/3 h-2 ${project.image ? 'bg-[#FFFFFF]/10' : 'bg-[#2B231D]/10'} rounded-full`} />
                     </div>
                   </div>
                 </motion.div>

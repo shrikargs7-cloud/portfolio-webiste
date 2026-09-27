@@ -6,12 +6,14 @@ export default function CaseStudyModal({ project, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8 bg-transparent/85 backdrop-blur-xl animate-in fade-in duration-300 overflow-y-auto select-none"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-8 bg-[#2B231D]/60 backdrop-blur-md animate-in fade-in duration-300 overflow-y-auto select-none"
       onClick={onClose}
+      data-lenis-prevent="true"
     >
       <div 
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-transparent border border-[#2B231D]/5 p-6 md:p-10 text-[#2B231D] shadow-2xl my-auto space-y-8"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#F5F1EB] border border-[#2B231D]/10 p-6 md:p-10 text-[#2B231D] shadow-2xl my-auto space-y-8 no-scrollbar"
         onClick={(e) => e.stopPropagation()}
+        data-lenis-prevent="true"
       >
         {/* Close Button */}
         <button
