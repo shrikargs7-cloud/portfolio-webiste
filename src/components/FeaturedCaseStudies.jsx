@@ -47,7 +47,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.94 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ margin: "-30px" }}
+              viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -4 }}
               className="w-full h-full max-h-[78vh] overflow-hidden max-w-7xl bg-[#FFFFFF]/95 backdrop-blur-2xl p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 shadow-[0_-12px_36px_rgba(43,35,29,0.1)] hover:shadow-[0_20px_50px_rgba(199,93,53,0.15)] border border-[#2B231D]/10 hover:border-[#C75D35]/30 rounded-3xl transition-all duration-300 group relative"
@@ -57,7 +57,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 <motion.span 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
+                  viewport={{ once: true }} transition={{ delay: 0.3 }}
                   className="font-google text-xs md:text-sm font-medium text-[#C75D35] tracking-wide uppercase"
                 >
                   0{idx + 1} — {project.category.split('•')[0].trim()}
@@ -66,7 +66,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 <motion.h3 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+                  viewport={{ once: true }} transition={{ delay: 0.4 }}
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-google font-semibold text-[#2B231D] tracking-tight leading-[1.15]"
                 >
                   {project.title}
@@ -75,7 +75,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 <motion.p 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  viewport={{ once: true }} transition={{ delay: 0.5 }}
                   className="text-xs sm:text-sm md:text-base text-[#73675E] font-google max-w-lg leading-relaxed line-clamp-3 md:line-clamp-4"
                 >
                   {project.desc}
@@ -84,7 +84,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.6 }}
+                  viewport={{ once: true }} transition={{ delay: 0.6 }}
                   className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2"
                 >
                   {project.technologies.slice(0, 4).map((tech, i) => (
@@ -97,7 +97,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
+                  viewport={{ once: true }} transition={{ delay: 0.7 }}
                   className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4"
                 >
                   <button
@@ -146,7 +146,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.8 }}
+                  viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.8 }}
                   className={`absolute inset-4 md:inset-8 border border-[#FFFFFF]/10 ${project.image ? 'bg-[#1A1511]/40 text-white' : 'bg-[#FFFFFF]/60 text-[#2B231D] border-[#2B231D]/5'} backdrop-blur-xl rounded-2xl flex flex-col p-4 md:p-6 font-google shadow-2xl`}
                 >
                   <div className={`flex justify-between items-center mb-8 border-b ${project.image ? 'border-[#FFFFFF]/10' : 'border-[#2B231D]/5'} pb-4`}>
@@ -164,7 +164,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: "75%" }}
-                        transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+                        viewport={{ once: true }} transition={{ delay: 1, duration: 1, ease: "easeOut" }}
                         className={`h-3 ${project.image ? 'bg-[#FFFFFF]/20' : 'bg-[#EAE2D6]'} rounded-full overflow-hidden relative`}
                       >
                          <motion.div 
@@ -179,14 +179,14 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "50%" }}
-                      transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
+                      viewport={{ once: true }} transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
                       className={`h-3 ${project.image ? 'bg-[#FFFFFF]/10' : 'bg-[#2B231D]/10'} rounded-full`} 
                     />
                     
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "85%" }}
-                      transition={{ delay: 1.4, duration: 1, ease: "easeOut" }}
+                      viewport={{ once: true }} transition={{ delay: 1.4, duration: 1, ease: "easeOut" }}
                       className={`h-3 ${project.image ? 'bg-[#FFFFFF]/10' : 'bg-[#2B231D]/10'} rounded-full`} 
                     />
 
