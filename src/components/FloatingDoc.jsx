@@ -31,7 +31,7 @@ const DOCK_SECTIONS = [
   { id: 'dashboard', label: 'Metrics', icon: Activity, tag: '04', desc: '480+ commits, LeetCode analytics' },
   { id: 'skills', label: 'Skills', icon: Cpu, tag: '05', desc: 'AI/ML, RAG, Full-Stack, Cloud' },
   { id: 'certificates', label: 'Credentials', icon: Award, tag: '06', desc: 'Verified certifications & degrees' },
-  { id: 'experience', label: 'Milestones', icon: Orbit, tag: '07', desc: 'Radial radar & orbital milestones' },
+  { id: 'experience_page', label: 'Experience', icon: Orbit, tag: '07', desc: 'Internships, Hackathons & GitHub' },
   { id: 'playground', label: 'R&D', icon: FlaskConical, tag: '08', desc: 'ContextLens, Hermes ESP32 & IoT' },
   { id: 'web-design', label: 'Web Design', icon: Palette, tag: '09', desc: 'Digital surfaces & UI architectures' },
   { id: 'performance', label: 'System Docs', icon: FileText, tag: '10', desc: 'Architecture specs & whitepapers' },
