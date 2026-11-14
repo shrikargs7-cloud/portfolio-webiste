@@ -4,22 +4,22 @@ import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 
 const INJECTED_STYLES = `
   .glass-card-metrics {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(43, 35, 29, 0.08);
-    box-shadow: 0 24px 60px -12px rgba(43, 35, 29, 0.08);
+    border: 1.5px solid rgba(43, 35, 29, 0.22);
+    box-shadow: 0 24px 60px -12px rgba(43, 35, 29, 0.12);
   }
   
   .glass-card-dark {
     background: #2B231D;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.3);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4);
   }
 
   .heatmap-node {
     border-radius: 3px;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
   }
 `;
 
@@ -78,8 +78,8 @@ export default function CodingDashboard({ setCursorState }) {
     >
       <style dangerouslySetInnerHTML={{ __html: INJECTED_STYLES }} />
       
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C75D35]/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+      {/* Background Ambient Glow Lightened */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C75D35]/2 blur-[140px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-10 md:space-y-16">
         
@@ -92,7 +92,7 @@ export default function CodingDashboard({ setCursorState }) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-3"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF]/80 border border-[#2B231D]/10 text-xs font-mono shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#2B231D]/20 text-xs font-mono shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C75D35] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C75D35]" />
@@ -109,7 +109,7 @@ export default function CodingDashboard({ setCursorState }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[#73675E] text-sm md:text-base font-light max-w-sm"
+            className="text-[#382E27] text-sm md:text-base font-normal max-w-sm"
           >
             A quantitative look at my problem-solving bandwidth, code output, and systemic consistency over time.
           </motion.p>
@@ -135,8 +135,8 @@ export default function CodingDashboard({ setCursorState }) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 rounded-[2rem] glass-card-metrics p-6 sm:p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[420px]"
           >
-            {/* Ambient Github Sheen */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-200/50 blur-[60px] rounded-full pointer-events-none -z-10" />
+            {/* Ambient Github Sheen Lightened */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-200/25 blur-[70px] rounded-full pointer-events-none -z-10" />
 
             <div className="flex justify-between items-start mb-8 z-10">
               <div className="space-y-2">
@@ -152,7 +152,7 @@ export default function CodingDashboard({ setCursorState }) {
                   rel="noreferrer"
                   onMouseEnter={() => setCursorState && setCursorState({ label: 'GitHub' })}
                   onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-                  className="inline-flex items-center gap-1.5 text-sm font-mono text-[#73675E] hover:text-[#C75D35] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-mono text-[#382E27] font-semibold hover:text-[#C75D35] transition-colors"
                 >
                   @shrikargs7-cloud <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
@@ -162,23 +162,23 @@ export default function CodingDashboard({ setCursorState }) {
                 <div className="text-4xl md:text-5xl font-bold text-[#2B231D] font-mono tracking-tighter">
                   <AnimatedCounter value={200} />+
                 </div>
-                <div className="text-xs font-mono text-[#73675E] uppercase tracking-wider mt-1">Total Commits</div>
+                <div className="text-xs font-mono text-[#382E27] font-bold uppercase tracking-wider mt-1">Total Commits</div>
               </div>
             </div>
 
             {/* Simulated Contribution Graph */}
             <div className="space-y-4 z-10">
-              <div className="flex justify-between items-center text-xs font-mono text-[#73675E]">
+              <div className="flex justify-between items-center text-xs font-mono text-[#382E27] font-semibold">
                 <span>Contribution Density</span>
                 <span className="flex items-center gap-1.5">
-                  Less <span className="w-3 h-3 rounded-sm bg-[#F5F1EB] border border-[#2B231D]/10"></span>
+                  Less <span className="w-3 h-3 rounded-sm bg-[#F5F1EB] border border-[#2B231D]/20"></span>
                   <span className="w-3 h-3 rounded-sm bg-[#C75D35]/30"></span>
                   <span className="w-3 h-3 rounded-sm bg-[#C75D35]/70"></span>
                   <span className="w-3 h-3 rounded-sm bg-[#C75D35]"></span> More
                 </span>
               </div>
               
-              <div className="w-full bg-[#FFFFFF]/60 p-4 rounded-2xl border border-[#2B231D]/5">
+              <div className="w-full bg-[#FFFFFF]/80 p-4 rounded-2xl border border-[#2B231D]/20 shadow-xs">
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(12px,1fr))] gap-1.5">
                   {Array.from({ length: 96 }).map((_, i) => {
                     const intensity = Math.random();
@@ -205,22 +205,22 @@ export default function CodingDashboard({ setCursorState }) {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-4 mt-8 z-10">
-              <div className="p-4 bg-[#FFFFFF]/60 rounded-2xl border border-[#2B231D]/5 flex items-center gap-4">
+              <div className="p-4 bg-[#FFFFFF]/80 rounded-2xl border border-[#2B231D]/20 shadow-xs flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
                   <Code2 className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-[#2B231D] font-mono"><AnimatedCounter value={18} /></div>
-                  <div className="text-[10px] uppercase tracking-widest text-[#73675E] font-mono">Repositories</div>
+                  <div className="text-[10px] uppercase tracking-widest text-[#382E27] font-mono font-bold">Repositories</div>
                 </div>
               </div>
-              <div className="p-4 bg-[#FFFFFF]/60 rounded-2xl border border-[#2B231D]/5 flex items-center gap-4">
+              <div className="p-4 bg-[#FFFFFF]/80 rounded-2xl border border-[#2B231D]/20 shadow-xs flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
                   <GitPullRequest className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-[#2B231D] font-mono"><AnimatedCounter value={100} />%</div>
-                  <div className="text-[10px] uppercase tracking-widest text-[#73675E] font-mono">Open Source</div>
+                  <div className="text-[10px] uppercase tracking-widest text-[#382E27] font-mono font-bold">Open Source</div>
                 </div>
               </div>
             </div>
@@ -237,8 +237,8 @@ export default function CodingDashboard({ setCursorState }) {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 rounded-[2rem] glass-card-dark p-6 sm:p-8 md:p-10 relative overflow-hidden flex flex-col justify-between min-h-[420px] text-white"
           >
-            {/* Decorative Glow */}
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#C75D35]/20 blur-[80px] rounded-full pointer-events-none" />
+            {/* Decorative Glow Lightened */}
+            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#C75D35]/10 blur-[90px] rounded-full pointer-events-none" />
 
             <div className="flex justify-between items-start z-10">
               <div className="flex items-center gap-3">

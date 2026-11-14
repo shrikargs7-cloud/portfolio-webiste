@@ -148,8 +148,8 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
     <footer id="contact" className="relative w-full bg-transparent text-[#2B231D] font-google pt-20 pb-10 px-4 sm:px-6 md:px-12 lg:px-16 overflow-hidden">
       <style dangerouslySetInnerHTML={{ __html: INJECTED_STYLES }} />
       
-      {/* Ambient Atmospheric Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[400px] md:h-[500px] bg-gradient-to-b from-[#C75D35]/10 via-[#D09B65]/5 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
+      {/* Ambient Atmospheric Glow Lightened */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[400px] md:h-[500px] bg-gradient-to-b from-[#C75D35]/3 via-[#D09B65]/2 to-transparent blur-[140px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
         
@@ -164,23 +164,23 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full rounded-[2.5rem] bg-[#FFFFFF]/90 backdrop-blur-2xl border border-[#2B231D]/10 shadow-[0_30px_90px_rgba(43,35,29,0.08)] p-6 sm:p-10 md:p-12 overflow-hidden flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
+          className="relative w-full rounded-[2.5rem] bg-[#FFFFFF]/95 backdrop-blur-2xl border-2 border-[#2B231D]/25 shadow-[0_30px_90px_rgba(43,35,29,0.12)] p-6 sm:p-10 md:p-12 overflow-hidden flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
         >
-          {/* Card Ambient Sheen */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#C75D35]/5 blur-[80px] rounded-full pointer-events-none" />
+          {/* Card Ambient Sheen Lightened */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#C75D35]/2 blur-[90px] rounded-full pointer-events-none" />
 
           {/* LEFT COLUMN: Call to Action */}
           <div className="flex-1 w-full space-y-8 z-20">
             {/* Status Badges */}
             <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#F5F1EB] border border-[#2B231D]/5 text-xs font-mono shadow-sm">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#F5F1EB] border border-[#2B231D]/20 text-xs font-mono shadow-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                <span className="font-semibold text-[#2B231D]">AVAILABLE FOR ROLES</span>
+                <span className="font-bold text-[#2B231D]">AVAILABLE FOR ROLES</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F1EB] border border-[#2B231D]/5 text-[#73675E] text-xs font-mono shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F1EB] border border-[#2B231D]/20 text-[#382E27] text-xs font-mono font-semibold shadow-xs">
                 <Clock className="w-3.5 h-3.5 text-[#C75D35]" />
                 <span>{currentTime || "10:00 AM IST"}</span>
               </div>
@@ -193,7 +193,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
                   what's next.
                 </span>
               </h2>
-              <p className="text-[#73675E] text-sm sm:text-base md:text-lg max-w-lg font-light leading-relaxed">
+              <p className="text-[#382E27] text-sm sm:text-base md:text-lg max-w-lg font-normal leading-relaxed">
                 Actively seeking opportunities in Software Engineering, Agentic AI, and distributed systems. I bring a rigorous engineering mindset and a track record of delivering high-impact, scalable solutions.
               </p>
             </div>
@@ -215,7 +215,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
                 onClick={handleCopy}
                 onMouseEnter={() => setCursorState && setCursorState({ label: copied ? "Copied" : "Copy" })}
                 onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-                className="px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#F5F1EB] hover:bg-[#EAE2D6] text-[#2B231D] font-mono text-sm font-medium flex items-center gap-2.5 border border-[#2B231D]/10 transition-all hover:scale-105 active:scale-95"
+                className="px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl bg-[#F5F1EB] hover:bg-[#EAE2D6] text-[#2B231D] font-mono text-sm font-semibold flex items-center gap-2.5 border-2 border-[#2B231D]/25 transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
                 {copied ? (
                   <>
@@ -224,7 +224,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-[#73675E]" />
+                    <Copy className="w-4 h-4 text-[#382E27]" />
                     <span>{email}</span>
                   </>
                 )}
@@ -232,14 +232,14 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
             </div>
             
             {/* Social Links */}
-            <div className="flex items-center gap-3 text-[#73675E] pt-2">
-              <a href="https://github.com/shrikargs7-cloud" target="_blank" rel="noreferrer" className="p-3.5 rounded-2xl bg-[#F5F1EB] hover:bg-[#FFFFFF] border border-[#2B231D]/5 hover:border-[#2B231D]/10 hover:text-[#C75D35] transition-all hover:scale-110 shadow-sm text-[#2B231D]">
+            <div className="flex items-center gap-3 text-[#382E27] pt-2">
+              <a href="https://github.com/shrikargs7-cloud" target="_blank" rel="noreferrer" className="p-3.5 rounded-2xl bg-[#F5F1EB] hover:bg-[#FFFFFF] border-2 border-[#2B231D]/20 hover:border-[#2B231D]/40 hover:text-[#C75D35] transition-all hover:scale-110 shadow-xs text-[#2B231D]">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="p-3.5 rounded-2xl bg-[#F5F1EB] hover:bg-[#FFFFFF] border border-[#2B231D]/5 hover:border-[#2B231D]/10 hover:text-[#C75D35] transition-all hover:scale-110 shadow-sm text-[#2B231D]">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="p-3.5 rounded-2xl bg-[#F5F1EB] hover:bg-[#FFFFFF] border-2 border-[#2B231D]/20 hover:border-[#2B231D]/40 hover:text-[#C75D35] transition-all hover:scale-110 shadow-xs text-[#2B231D]">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://leetcode.com" target="_blank" rel="noreferrer" className="p-3.5 rounded-2xl bg-[#F5F1EB] hover:bg-[#FFFFFF] border border-[#2B231D]/5 hover:border-[#2B231D]/10 hover:text-[#C75D35] transition-all hover:scale-110 shadow-sm text-[#2B231D]">
+              <a href="https://leetcode.com" target="_blank" rel="noreferrer" className="p-3.5 rounded-2xl bg-[#F5F1EB] hover:bg-[#FFFFFF] border-2 border-[#2B231D]/20 hover:border-[#2B231D]/40 hover:text-[#C75D35] transition-all hover:scale-110 shadow-xs text-[#2B231D]">
                 <Terminal className="w-5 h-5" />
               </a>
             </div>

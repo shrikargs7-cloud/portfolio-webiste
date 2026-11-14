@@ -27,8 +27,8 @@
 :root {
   --accent-color: #C75D35; /* Terracotta / Warm Cocoa Accent */
   --hero-bg: #F5F1EB; /* Warm Oat Background */
-  --text-main: #2B231D;
-  --text-muted: #73675E;
+  --text-main: #1F1914;
+  --text-muted: #382E27;
 }
 
 body {
@@ -51,21 +51,21 @@ body {
   font-family: 'Great Vibes', cursive;
 }
 
-/* Base custom apple-style glass class used in multiple components */
+/* Base custom apple-style glass class used in multiple components with crisp, darker borders */
 .apple-glass {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(43, 35, 29, 0.05);
-  box-shadow: 0 4px 20px rgba(43, 35, 29, 0.05);
+  border: 1px solid rgba(43, 35, 29, 0.22);
+  box-shadow: 0 4px 20px rgba(43, 35, 29, 0.08);
 }
 
 .apple-glass-dark {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(43, 35, 29, 0.05);
-  box-shadow: 0 10px 40px rgba(43, 35, 29, 0.08);
+  border: 1px solid rgba(43, 35, 29, 0.25);
+  box-shadow: 0 10px 40px rgba(43, 35, 29, 0.12);
 }
 
 .no-scrollbar::-webkit-scrollbar {

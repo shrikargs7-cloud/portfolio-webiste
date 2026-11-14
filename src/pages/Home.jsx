@@ -136,9 +136,9 @@ export default function Home() {
     <SonarGrid
       color="#C75D35"
       interactive={true}
-      amplitude={2.5}
-      speed={300}
-      baseOpacity={0.15}
+      amplitude={1.1}
+      speed={240}
+      baseOpacity={0.06}
       className="relative min-h-screen w-full bg-[#F5F1EB] text-[#2B231D] selection:bg-lime-400 selection:text-black font-sans antialiased"
     >
       {/* Dynamic Interactive Cyber Tech Canvas Background */}

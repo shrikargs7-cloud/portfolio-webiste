@@ -11,14 +11,14 @@ export default function CaseStudyModal({ project, onClose }) {
       data-lenis-prevent="true"
     >
       <div 
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#F5F1EB] border border-[#2B231D]/10 p-6 md:p-10 text-[#2B231D] shadow-2xl my-auto space-y-8 no-scrollbar"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#F5F1EB] border-2 border-[#2B231D]/25 p-6 md:p-10 text-[#2B231D] shadow-2xl my-auto space-y-8 no-scrollbar"
         onClick={(e) => e.stopPropagation()}
         data-lenis-prevent="true"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2.5 rounded-full bg-[#FFFFFF] border border-[#2B231D]/5 text-[#73675E] hover:bg-[#C75D35] hover:text-slate-950 transition-colors cursor-pointer"
+          className="absolute top-6 right-6 p-2.5 rounded-full bg-[#FFFFFF] border-2 border-[#2B231D]/20 text-[#382E27] hover:bg-[#C75D35] hover:text-white transition-colors cursor-pointer shadow-xs"
         >
           <X className="w-5 h-5" />
         </button>
@@ -30,8 +30,8 @@ export default function CaseStudyModal({ project, onClose }) {
               {project.category}
             </span>
             {project.achievement && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/40 text-purple-300 font-mono text-xs font-bold animate-pulse">
-                <Award className="w-3.5 h-3.5 text-purple-400" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/40 text-purple-700 font-mono text-xs font-bold animate-pulse">
+                <Award className="w-3.5 h-3.5 text-purple-600" />
                 {project.achievement}
               </span>
             )}
@@ -41,12 +41,12 @@ export default function CaseStudyModal({ project, onClose }) {
             {project.title}
           </h2>
 
-          <p className="font-google text-base sm:text-lg text-[#73675E] leading-relaxed font-light">
+          <p className="font-google text-base sm:text-lg text-[#382E27] leading-relaxed font-normal">
             {project.desc}
           </p>
 
           {project.evolutionNote && (
-            <div className="p-3.5 rounded-2xl bg-[#C75D35]/10 border border-[#C75D35]/20 text-[#C75D35] text-xs font-mono flex items-center gap-2">
+            <div className="p-3.5 rounded-2xl bg-[#C75D35]/10 border border-[#C75D35]/20 text-[#C75D35] text-xs font-mono font-semibold flex items-center gap-2">
               <Sparkles className="w-4 h-4 flex-shrink-0 text-[#C75D35]" />
               <span>{project.evolutionNote}</span>
             </div>
@@ -54,15 +54,15 @@ export default function CaseStudyModal({ project, onClose }) {
         </div>
 
         {/* Technologies Grid */}
-        <div className="space-y-3 pt-2 border-t border-[#2B231D]/5">
-          <span className="text-xs font-mono tracking-widest text-[#73675E] block">
+        <div className="space-y-3 pt-2 border-t border-[#2B231D]/20">
+          <span className="text-xs font-mono tracking-widest text-[#382E27] font-bold block">
             // Technologies &amp; Frameworks
           </span>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1.5 rounded-xl bg-[#FFFFFF] border border-[#2B231D]/5 text-xs font-mono text-[#2B231D]"
+                className="px-3 py-1.5 rounded-xl bg-[#FFFFFF] border border-[#2B231D]/20 text-xs font-mono text-[#2B231D] font-semibold shadow-xs"
               >
                 {tech}
               </span>
@@ -81,9 +81,9 @@ export default function CaseStudyModal({ project, onClose }) {
               {project.pipelineStages.map((stage, idx) => (
                 <div 
                   key={idx} 
-                  className="flex items-start gap-2.5 p-3 rounded-2xl bg-[#FFFFFF]/60 border border-[#2B231D]/5 text-xs text-[#73675E]"
+                  className="flex items-start gap-2.5 p-3 rounded-2xl bg-[#FFFFFF] border border-[#2B231D]/20 text-xs text-[#382E27] font-medium shadow-xs"
                 >
-                  <span className="font-mono text-[10px] font-bold text-emerald-400 bg-transparent px-1.5 py-0.5 rounded border border-[#2B231D]/5">
+                  <span className="font-mono text-[10px] font-bold text-emerald-600 bg-transparent px-1.5 py-0.5 rounded border border-[#2B231D]/20">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                   <span>{stage}</span>
@@ -92,14 +92,14 @@ export default function CaseStudyModal({ project, onClose }) {
             </div>
 
             {project.validationDatasets && (
-              <div className="mt-3 p-4 rounded-2xl bg-[#FFFFFF]/40 border border-[#2B231D]/5 text-xs font-mono text-[#73675E]">
-                <span className="text-emerald-400 font-bold mr-2">Validation Datasets:</span>
-                <span className="text-[#2B231D]">{project.validationDatasets.join(' · ')}</span>
+              <div className="mt-3 p-4 rounded-2xl bg-[#FFFFFF] border border-[#2B231D]/20 text-xs font-mono text-[#382E27] shadow-xs">
+                <span className="text-emerald-600 font-bold mr-2">Validation Datasets:</span>
+                <span className="text-[#2B231D] font-semibold">{project.validationDatasets.join(' · ')}</span>
               </div>
             )}
 
             {project.architectureNote && (
-              <p className="text-xs text-[#73675E] font-google italic leading-relaxed">
+              <p className="text-xs text-[#382E27] font-google italic leading-relaxed">
                 {project.architectureNote}
               </p>
             )}
@@ -108,14 +108,14 @@ export default function CaseStudyModal({ project, onClose }) {
 
         {/* Key Concepts (For other projects) */}
         {project.keyConcepts && project.keyConcepts.length > 0 && (
-          <div className="space-y-4 pt-2 border-t border-[#2B231D]/5 font-google">
+          <div className="space-y-4 pt-2 border-t border-[#2B231D]/20 font-google">
             <h3 className="text-lg sm:text-xl font-bold text-[#2B231D] font-google flex items-center gap-2">
               <Layers className="w-5 h-5 text-[#C75D35]" />
               <span>Key Engineering Concepts</span>
             </h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[#73675E] text-xs sm:text-sm">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[#382E27] text-xs sm:text-sm font-medium">
               {project.keyConcepts.map((concept, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 bg-[#FFFFFF]/40 p-3.5 rounded-2xl border border-[#2B231D]/5">
+                <li key={idx} className="flex items-start gap-2.5 bg-[#FFFFFF] p-3.5 rounded-2xl border border-[#2B231D]/20 shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-[#C75D35] flex-shrink-0 mt-0.5" />
                   <span>{concept}</span>
                 </li>
@@ -125,18 +125,18 @@ export default function CaseStudyModal({ project, onClose }) {
         )}
 
         {/* Actions Footer */}
-        <div className="pt-6 border-t border-[#2B231D]/5 flex flex-wrap justify-between items-center gap-4">
+        <div className="pt-6 border-t border-[#2B231D]/20 flex flex-wrap justify-between items-center gap-4">
           <div className="flex flex-wrap items-center gap-3">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFFFFF] hover:bg-[#F5F1EB] border border-[#2B231D]/5 hover:border-[#D09B65] text-[#2B231D] font-mono text-xs font-semibold transition-all shadow-md hover:scale-105"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFFFFF] hover:bg-[#F5F1EB] border-2 border-[#2B231D]/25 hover:border-[#C75D35] text-[#2B231D] font-mono text-xs font-semibold transition-all shadow-md hover:scale-105"
               >
                 <Github className="w-4 h-4 text-[#C75D35]" />
                 <span>View on GitHub</span>
-                <ExternalLink className="w-3 h-3 text-[#73675E]" />
+                <ExternalLink className="w-3 h-3 text-[#382E27]" />
               </a>
             )}
 

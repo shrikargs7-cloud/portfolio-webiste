@@ -23,7 +23,7 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Sparkles,
     colSpan: 'md:col-span-2 lg:col-span-2',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#C75D35] text-[#FFFFFF]',
+    theme: 'bg-[#C75D35] text-[#FFFFFF] border-2 border-[#C75D35]',
     iconColor: 'text-[#FFFFFF]',
     skills: ['LLM Apps', 'Prompt Engineering', 'Vector DBs', 'Semantic Search', 'Agentic Workflows'],
     image: '/assets/skills/genai.jpg'
@@ -34,7 +34,7 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Terminal,
     colSpan: 'md:col-span-1 lg:col-span-1',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#F5F1EB] text-[#2B231D] border border-[#2B231D]/5',
+    theme: 'bg-[#F5F1EB] text-[#2B231D] border-2 border-[#2B231D]/25',
     iconColor: 'text-[#C75D35]',
     skills: ['Python 3', 'C++', 'JavaScript', 'TypeScript', 'SQL', 'Bash']
   },
@@ -44,8 +44,8 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Cloud,
     colSpan: 'md:col-span-1 lg:col-span-1',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#FFFFFF] text-[#2B231D] border border-[#2B231D]/5',
-    iconColor: 'text-[#73675E]',
+    theme: 'bg-[#FFFFFF] text-[#2B231D] border-2 border-[#2B231D]/25',
+    iconColor: 'text-[#382E27]',
     skills: ['GCP', 'Cloud Run', 'Serverless', 'Microservices']
   },
   {
@@ -54,7 +54,7 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Flame,
     colSpan: 'md:col-span-1 lg:col-span-1',
     rowSpan: 'md:row-span-2',
-    theme: 'bg-[#1A1511] text-[#F5F1EB] border border-[#C75D35]/20',
+    theme: 'bg-[#1A1511] text-[#F5F1EB] border-2 border-[#C75D35]/40',
     iconColor: 'text-orange-400',
     skills: ['Transfer Learning', 'PEFT / LoRA', 'QLoRA', 'Quantization', 'GPU Pipelines']
   },
@@ -64,7 +64,7 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Database,
     colSpan: 'md:col-span-2 lg:col-span-2',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#F5F1EB] text-[#2B231D] border border-[#2B231D]/5',
+    theme: 'bg-[#F5F1EB] text-[#2B231D] border-2 border-[#2B231D]/25',
     iconColor: 'text-[#2B231D]',
     skills: ['Node.js', 'FastAPI', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Redis', 'Pinecone'],
     image: '/assets/skills/backend.jpg'
@@ -75,7 +75,7 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Workflow,
     colSpan: 'md:col-span-1 lg:col-span-1',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#FFFFFF] text-[#2B231D] border border-[#2B231D]/5',
+    theme: 'bg-[#FFFFFF] text-[#2B231D] border-2 border-[#2B231D]/25',
     iconColor: 'text-[#C75D35]',
     skills: ['ETL', 'Batch Inference', 'Automated Workflows']
   },
@@ -85,7 +85,7 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: Layout,
     colSpan: 'md:col-span-1 lg:col-span-1',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#2B231D] text-[#F5F1EB]',
+    theme: 'bg-[#2B231D] text-[#F5F1EB] border-2 border-white/20',
     iconColor: 'text-[#F5F1EB]',
     skills: ['React', 'Next.js', 'Tailwind', 'Framer Motion']
   },
@@ -95,8 +95,8 @@ export const TECHNICAL_SKILLS_CATEGORIES = [
     icon: GitMerge,
     colSpan: 'md:col-span-1 lg:col-span-1',
     rowSpan: 'md:row-span-1',
-    theme: 'bg-[#F5F1EB] text-[#2B231D] border border-[#2B231D]/5',
-    iconColor: 'text-[#73675E]',
+    theme: 'bg-[#F5F1EB] text-[#2B231D] border-2 border-[#2B231D]/25',
+    iconColor: 'text-[#382E27]',
     skills: ['Docker', 'GitHub Actions', 'Automated Testing']
   }
 ];
@@ -163,9 +163,9 @@ function BentoCard({ cat, idx, setCursorState }) {
         </div>
       )}
       
-      {/* Background ambient accents for dark cards without images */}
+      {/* Background ambient accents for dark cards without images - lightened */}
       {isDark && !cat.image && (
-        <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#FFFFFF]/10 blur-[40px] rounded-full pointer-events-none group-hover:scale-150 transition-transform duration-700" style={{ transform: 'translateZ(-5px)' }} />
+        <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#FFFFFF]/5 blur-[50px] rounded-full pointer-events-none group-hover:scale-150 transition-transform duration-700" style={{ transform: 'translateZ(-5px)' }} />
       )}
       
       <div className="flex justify-between items-start relative z-10" style={{ transform: 'translateZ(10px)' }}>
@@ -186,8 +186,8 @@ function BentoCard({ cat, idx, setCursorState }) {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className={`font-mono text-[10px] md:text-xs px-2.5 py-1.5 rounded-md cursor-default ${
                 isDark || cat.image
-                  ? 'bg-[#FFFFFF]/10 border border-[#FFFFFF]/20 text-[#FFFFFF] shadow-lg' 
-                  : 'bg-[#FFFFFF] border border-[#2B231D]/10 text-[#73675E] shadow-sm'
+                  ? 'bg-[#FFFFFF]/10 border border-[#FFFFFF]/30 text-[#FFFFFF] shadow-lg' 
+                  : 'bg-[#FFFFFF] border border-[#2B231D]/25 text-[#382E27] font-semibold shadow-xs'
               } backdrop-blur-sm transition-colors`}
             >
               {skill}
@@ -217,7 +217,7 @@ export default function SkillsCategoryGrid({ setCursorState }) {
         <h2 className="text-[clamp(40px,7vw,84px)] font-google font-semibold text-[#2B231D] tracking-tight leading-none mb-4">
           Engineered for <br/> <span className="text-[#C75D35] italic pr-4">scale.</span>
         </h2>
-        <p className="text-lg md:text-xl text-[#73675E] font-google max-w-2xl font-light">
+        <p className="text-lg md:text-xl text-[#382E27] font-google max-w-2xl font-normal">
           A comprehensive breakdown of the languages, frameworks, and architectures I use to build robust AI and web systems.
         </p>
       </motion.div>

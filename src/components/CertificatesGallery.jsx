@@ -44,7 +44,7 @@ export default function CertificatesGallery({ setCursorState }) {
             Certifications <br />
             <span className="text-[#C75D35]">& Credentials</span>
           </h2>
-          <p className="text-[#73675E] font-mono text-xs sm:text-sm max-w-md">
+          <p className="text-[#382E27] font-mono text-xs sm:text-sm font-semibold max-w-md">
             SYS.LOG: VERIFIED_EXPERTISE // Validating continuous learning and skill mastery across multiple domains.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function CertificatesGallery({ setCursorState }) {
                 href={`/certificates/${cert}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-xl overflow-hidden border border-[#2B231D]/5 bg-[#FFFFFF] group"
+                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden border-2 border-[#2B231D]/25 bg-[#FFFFFF] shadow-md group"
                 onMouseEnter={() => setCursorState({ label: 'VIEW' })}
                 onMouseLeave={() => setCursorState({ label: null })}
               >
@@ -86,7 +86,7 @@ export default function CertificatesGallery({ setCursorState }) {
                 href={`/certificates/${cert}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-xl overflow-hidden border border-[#2B231D]/5 bg-[#FFFFFF] group"
+                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden border-2 border-[#2B231D]/25 bg-[#FFFFFF] shadow-md group"
                 onMouseEnter={() => setCursorState({ label: 'VIEW' })}
                 onMouseLeave={() => setCursorState({ label: null })}
               >
@@ -113,7 +113,7 @@ export default function CertificatesGallery({ setCursorState }) {
                 href={`/certificates/${cert}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-xl overflow-hidden border border-[#2B231D]/5 bg-[#FFFFFF] group"
+                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden border-2 border-[#2B231D]/25 bg-[#FFFFFF] shadow-md group"
                 onMouseEnter={() => setCursorState({ label: 'VIEW' })}
                 onMouseLeave={() => setCursorState({ label: null })}
               >
@@ -137,7 +137,7 @@ export default function CertificatesGallery({ setCursorState }) {
                 href={`/certificates/${cert}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-xl overflow-hidden border border-[#2B231D]/5 bg-[#FFFFFF] group"
+                className="w-[280px] md:w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden border-2 border-[#2B231D]/25 bg-[#FFFFFF] shadow-md group"
                 onMouseEnter={() => setCursorState({ label: 'VIEW' })}
                 onMouseLeave={() => setCursorState({ label: null })}
               >

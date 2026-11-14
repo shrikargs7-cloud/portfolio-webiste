@@ -81,11 +81,11 @@ function VerticalDockIcon({
             transition={{ duration: 0.15, ease: "easeOut" }}
             className="pointer-events-none absolute right-full mr-3 z-50 whitespace-nowrap flex items-center"
           >
-            <div className="px-3 py-1.5 rounded-xl bg-[#FFFFFF]/95 border border-[#2B231D]/10 shadow-[0_10px_25px_rgba(43,35,29,0.15)] backdrop-blur-md flex items-center gap-2 font-google text-xs text-[#2B231D]">
+            <div className="px-3 py-1.5 rounded-xl bg-[#FFFFFF] border-2 border-[#2B231D]/25 shadow-[0_10px_25px_rgba(43,35,29,0.18)] backdrop-blur-md flex items-center gap-2 font-google text-xs text-[#2B231D]">
               <span className="font-mono text-[10px] text-[#C75D35] font-bold">{item.tag}</span>
-              <span className="font-semibold">{item.label}</span>
+              <span className="font-bold">{item.label}</span>
             </div>
-            <div className="w-2 h-2 bg-[#FFFFFF] border-r border-t border-[#2B231D]/10 rotate-45 -ml-1 shadow-xs" />
+            <div className="w-2 h-2 bg-[#FFFFFF] border-r-2 border-t-2 border-[#2B231D]/25 rotate-45 -ml-1 shadow-xs" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -383,7 +383,7 @@ export default function FloatingDoc({
           }}
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
           onMouseMove={(e) => mouseY.set(e.pageY)}
-          className="mr-3 py-3 px-2 rounded-3xl bg-[#FFFFFF]/90 backdrop-blur-2xl border border-[#2B231D]/10 shadow-[0_15px_45px_rgba(43,35,29,0.16)] flex flex-col items-center gap-1.5"
+          className="mr-3 py-3 px-2 rounded-3xl bg-[#FFFFFF]/95 backdrop-blur-2xl border-2 border-[#2B231D]/25 shadow-[0_15px_45px_rgba(43,35,29,0.18)] flex flex-col items-center gap-1.5"
         >
           {/* Top Avatar & Command Hub Trigger */}
           <motion.button
@@ -477,7 +477,7 @@ export default function FloatingDoc({
         <motion.button
           whileTap={{ scale: 0.92 }}
           onClick={() => setIsExpanded(true)}
-          className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#FFFFFF]/95 backdrop-blur-xl border border-[#2B231D]/10 shadow-[0_10px_25px_rgba(43,35,29,0.15)] text-[#2B231D]"
+          className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#FFFFFF] backdrop-blur-xl border-2 border-[#2B231D]/25 shadow-[0_10px_25px_rgba(43,35,29,0.18)] text-[#2B231D]"
         >
           <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#C75D35] to-[#D09B65] text-white font-mono font-bold text-[9px] flex items-center justify-center shadow-xs">
             SG

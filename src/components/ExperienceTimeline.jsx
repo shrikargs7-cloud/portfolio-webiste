@@ -85,7 +85,7 @@ export default function ExperienceTimeline({ setCursorState }) {
               Experience Milestones
             </h2>
 
-            <p className="font-google text-[#73675E] text-xs sm:text-base font-light leading-relaxed">
+            <p className="font-google text-[#382E27] text-xs sm:text-base font-normal leading-relaxed">
               Chronological horizon tracking academic foundations, cloud computing systems, agentic AI innovation, medical computer vision, and scalable production software.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function ExperienceTimeline({ setCursorState }) {
             <button
               type="button"
               onClick={() => setViewMode(viewMode === 'ORBIT' ? 'ROADMAP' : 'ORBIT')}
-              className="px-4 py-2 rounded-2xl border border-[#2B231D]/10 bg-[#FFFFFF]/90 hover:bg-[#F5F1EB] text-[#2B231D] text-xs font-mono flex items-center gap-2 transition-all shadow-md hover:scale-105 active:scale-95"
+              className="px-4 py-2 rounded-2xl border-2 border-[#2B231D]/25 bg-[#FFFFFF] hover:bg-[#F5F1EB] text-[#2B231D] text-xs font-mono font-semibold flex items-center gap-2 transition-all shadow-md hover:scale-105 active:scale-95"
             >
               <Layers className="w-4 h-4 text-[#C75D35]" />
               <span>{viewMode === 'ORBIT' ? 'Roadmap Flow' : 'Orbital Radar'}</span>
@@ -106,15 +106,15 @@ export default function ExperienceTimeline({ setCursorState }) {
         {/* View 1: 3D Radial Orbital Radar */}
         {viewMode === 'ORBIT' ? (
           <div 
-            className="relative w-full rounded-3xl bg-[#FFFFFF]/50 border border-[#2B231D]/5 backdrop-blur-2xl shadow-2xl overflow-hidden p-3 sm:p-6"
+            className="relative w-full rounded-3xl bg-[#FFFFFF]/70 border-2 border-[#2B231D]/25 backdrop-blur-2xl shadow-2xl overflow-hidden p-3 sm:p-6"
             onMouseEnter={() => setCursorState && setCursorState({ label: 'Orbit' })}
             onMouseLeave={() => setCursorState && setCursorState({ label: null })}
           >
             {/* Corner Cyber Reticles */}
-            <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-[#D09B65]/50 pointer-events-none" />
-            <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-[#D09B65]/50 pointer-events-none" />
-            <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-[#D09B65]/50 pointer-events-none" />
-            <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-[#D09B65]/50 pointer-events-none" />
+            <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-[#D09B65]/70 pointer-events-none" />
+            <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-[#D09B65]/70 pointer-events-none" />
+            <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-[#D09B65]/70 pointer-events-none" />
+            <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-[#D09B65]/70 pointer-events-none" />
 
             <RadialOrbitalTimeline 
               timelineData={timelineData} 
@@ -138,17 +138,17 @@ export default function ExperienceTimeline({ setCursorState }) {
                   )}
 
                   {/* Milestone Orb Icon */}
-                  <div className="relative z-10 w-10 sm:w-12 h-10 sm:h-12 rounded-2xl bg-[#FFFFFF] border border-[#2B231D]/5 text-[#C75D35] flex items-center justify-center shadow-lg group-hover:border-[#D09B65] group-hover:shadow-[0_0_20px_rgba(163,230,53,0.3)] transition-all flex-shrink-0">
+                  <div className="relative z-10 w-10 sm:w-12 h-10 sm:h-12 rounded-2xl bg-[#FFFFFF] border-2 border-[#2B231D]/20 text-[#C75D35] flex items-center justify-center shadow-lg group-hover:border-[#D09B65] group-hover:shadow-[0_0_20px_rgba(199,93,53,0.3)] transition-all flex-shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
 
                   {/* Milestone Card Content */}
-                  <div className="flex-1 p-5 sm:p-6 rounded-3xl bg-[#FFFFFF]/70 border border-[#2B231D]/5 group-hover:border-[#D09B65]/40 backdrop-blur-xl transition-all duration-300 shadow-xl space-y-3">
+                  <div className="flex-1 p-5 sm:p-6 rounded-3xl bg-[#FFFFFF]/90 border-2 border-[#2B231D]/25 group-hover:border-[#C75D35] backdrop-blur-xl transition-all duration-300 shadow-xl space-y-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="font-mono text-xs text-sky-400 tracking-wider font-semibold">
+                      <span className="font-mono text-xs text-sky-500 tracking-wider font-bold">
                         {item.category}
                       </span>
-                      <span className="font-mono text-xs font-bold text-[#C75D35] bg-[#FFFFFF] px-3 py-1 rounded-full border border-[#2B231D]/5">
+                      <span className="font-mono text-xs font-bold text-[#C75D35] bg-[#FFFFFF] px-3 py-1 rounded-full border border-[#2B231D]/20 shadow-xs">
                         {item.date}
                       </span>
                     </div>
@@ -157,17 +157,17 @@ export default function ExperienceTimeline({ setCursorState }) {
                       {item.title}
                     </h3>
 
-                    <p className="font-google text-sm sm:text-base text-[#73675E] font-light leading-relaxed">
+                    <p className="font-google text-sm sm:text-base text-[#382E27] font-normal leading-relaxed">
                       {item.content}
                     </p>
 
                     {/* Progress Bar */}
                     <div className="pt-2">
-                      <div className="flex justify-between items-center text-xs font-mono mb-1.5 text-[#73675E]">
+                      <div className="flex justify-between items-center text-xs font-mono mb-1.5 text-[#382E27] font-semibold">
                         <span>Milestone Energy</span>
                         <span className="text-[#C75D35] font-bold">{item.energy}%</span>
                       </div>
-                      <div className="w-full h-1.5 bg-[#F5F1EB] rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-[#F5F1EB] rounded-full overflow-hidden border border-[#2B231D]/10">
                         <div 
                           className="h-full bg-gradient-to-r from-[#C75D35] to-[#D09B65] rounded-full"
                           style={{ width: `${item.energy}%` }}

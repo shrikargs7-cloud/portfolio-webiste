@@ -54,7 +54,7 @@ export default function AboutRvUniversity({ setCursorState }) {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#2B231D]/5 font-mono text-xs text-[#C75D35] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#2B231D]/20 font-mono text-xs text-[#C75D35] shadow-sm">
             <GraduationCap className="w-4 h-4" />
             <span>G S Shrikar · India · Full-Stack &amp; AI/ML Engineer</span>
           </div>
@@ -63,11 +63,11 @@ export default function AboutRvUniversity({ setCursorState }) {
             Hi, I'm G S Shrikar
           </h2>
 
-          <div className="font-google text-[#73675E] text-base md:text-lg max-w-4xl leading-relaxed font-light space-y-3">
+          <div className="font-google text-[#382E27] text-base md:text-lg max-w-4xl leading-relaxed font-normal space-y-3">
             <p>
               I am a developer interested in building intelligent, scalable, and practical software systems. My work spans full-stack web development, AI/ML, generative AI, RAG systems, AI agents, model fine-tuning, cloud technologies, automation, computer vision, and data-driven applications.
             </p>
-            <p className="text-[#73675E] text-sm md:text-base">
+            <p className="text-[#382E27] text-sm md:text-base font-normal">
               I enjoy taking an idea from experimentation and model development all the way to APIs, web applications, deployment, and production-oriented systems.
             </p>
           </div>
@@ -90,18 +90,18 @@ export default function AboutRvUniversity({ setCursorState }) {
                   onClick={() => setActivePillar(p.id)}
                   onMouseEnter={() => setCursorState && setCursorState({ label: 'Explore' })}
                   onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-                  className={`flex items-center gap-4 p-4 rounded-2xl border text-left transition-all duration-300 backdrop-blur-md ${
+                  className={`flex items-center gap-4 p-4 rounded-2xl border-2 text-left transition-all duration-300 backdrop-blur-md ${
                     isActive
-                      ? 'bg-[#FFFFFF]/90 border-[#D09B65]/60 shadow-[0_15px_30px_rgba(43,35,29,0.06)] text-[#2B231D] scale-[1.02]'
-                      : 'bg-[#FFFFFF]/50 border-[#2B231D]/5 text-[#73675E] hover:text-[#2B231D] hover:bg-[#FFFFFF]/60 hover:border-[#2B231D]/10'
+                      ? 'bg-[#FFFFFF] border-[#C75D35] shadow-[0_15px_30px_rgba(43,35,29,0.1)] text-[#2B231D] scale-[1.02]'
+                      : 'bg-[#FFFFFF]/70 border-[#2B231D]/20 text-[#382E27] hover:text-[#2B231D] hover:bg-[#FFFFFF] hover:border-[#2B231D]/35'
                   }`}
                 >
-                  <div className={`p-2.5 rounded-xl transition-colors duration-500 ${isActive ? 'bg-[#C75D35] text-white' : 'bg-[#F5F1EB] text-[#73675E]'}`}>
+                  <div className={`p-2.5 rounded-xl transition-colors duration-500 ${isActive ? 'bg-[#C75D35] text-white' : 'bg-[#F5F1EB] text-[#382E27]'}`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-google text-lg font-bold">{p.title}</h3>
-                    <p className="font-google text-xs text-[#73675E] mt-0.5">{p.tagline}</p>
+                    <h3 className="font-google text-lg font-bold text-[#2B231D]">{p.title}</h3>
+                    <p className="font-google text-xs text-[#382E27] font-medium mt-0.5">{p.tagline}</p>
                   </div>
                 </motion.button>
               );
@@ -115,26 +115,26 @@ export default function AboutRvUniversity({ setCursorState }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -15 }}
               transition={{ duration: 0.4, type: "spring", bounce: 0 }}
-              className="lg:col-span-7 p-8 md:p-10 rounded-3xl bg-[#FFFFFF]/70 border border-[#2B231D]/10 backdrop-blur-2xl space-y-8 flex flex-col justify-between min-h-[360px] shadow-xl relative overflow-hidden group"
+              className="lg:col-span-7 p-8 md:p-10 rounded-3xl bg-[#FFFFFF]/85 border-2 border-[#2B231D]/25 backdrop-blur-2xl space-y-8 flex flex-col justify-between min-h-[360px] shadow-xl relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#C75D35]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#C75D35]/2 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
               
               <div className="space-y-4 relative z-10">
-                <span className="font-mono text-xs tracking-widest text-[#C75D35] block">// Focus Area</span>
+                <span className="font-mono text-xs tracking-widest text-[#C75D35] font-bold block">// Focus Area</span>
                 <h3 className="text-3xl font-bold text-[#2B231D] font-google">{current.title}</h3>
-                <p className="font-google text-[#73675E] text-base leading-relaxed font-medium">
+                <p className="font-google text-[#382E27] text-base leading-relaxed font-normal">
                   {current.details}
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-[#2B231D]/5 flex flex-wrap gap-2 relative z-10">
+              <div className="pt-6 border-t border-[#2B231D]/20 flex flex-wrap gap-2 relative z-10">
                 {current.highlights.map((h, idx) => (
                   <motion.span 
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + (idx * 0.05) }}
                     key={h} 
-                    className="font-mono text-xs px-3.5 py-1.5 rounded-full bg-white text-[#73675E] border border-[#2B231D]/5 shadow-sm"
+                    className="font-mono text-xs px-3.5 py-1.5 rounded-full bg-white text-[#2B231D] font-medium border border-[#2B231D]/20 shadow-xs"
                   >
                     ✓ {h}
                   </motion.span>

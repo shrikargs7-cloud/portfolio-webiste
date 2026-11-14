@@ -87,16 +87,16 @@ export default function InteractiveTerminal({ setCursorState }) {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, type: "spring", bounce: 0 }}
-          className="rounded-3xl border border-[#2B231D]/5 bg-[#FFFFFF]/40 shadow-2xl overflow-hidden backdrop-blur-xl hover:border-[#D09B65]/40 transition-colors"
+          className="rounded-3xl border-2 border-[#2B231D]/25 bg-[#FFFFFF]/75 shadow-2xl overflow-hidden backdrop-blur-xl hover:border-[#C75D35] transition-colors"
         >
-          <div className="bg-[#FFFFFF]/70 px-6 py-3.5 border-b border-[#2B231D]/5 flex items-center justify-between text-[#73675E]">
+          <div className="bg-[#FFFFFF]/90 px-6 py-3.5 border-b border-[#2B231D]/20 flex items-center justify-between text-[#382E27]">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-              <span className="ml-2 text-[#73675E] font-mono text-[11px]">gsshrikar@system:~</span>
+              <span className="ml-2 text-[#382E27] font-mono font-semibold text-[11px]">gsshrikar@system:~</span>
             </div>
-            <span className="text-[11px] text-[#515154] font-mono">bash --v2.6</span>
+            <span className="text-[11px] text-[#2B231D] font-bold font-mono">bash --v2.6</span>
           </div>
 
           <div className="p-6 md:p-8 space-y-3 max-h-80 overflow-y-auto">
@@ -105,20 +105,20 @@ export default function InteractiveTerminal({ setCursorState }) {
                 key={i} 
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                className={h.type === 'input' ? 'text-[#C75D35] font-medium' : 'text-[#73675E] font-light flex items-center gap-2 flex-wrap'}
+                className={h.type === 'input' ? 'text-[#C75D35] font-semibold' : 'text-[#2B231D] font-normal flex items-center gap-2 flex-wrap'}
               >
                 {h.type === 'input' ? `visitor@portfolio:~$ ${h.text}` : h.text}
               </motion.div>
             ))}
 
             <form onSubmit={handleCommand} className="flex items-center gap-2 pt-2 ">
-              <span className="text-[#C75D35]">visitor@portfolio:~$</span>
+              <span className="text-[#C75D35] font-semibold">visitor@portfolio:~$</span>
               <input
                 type="text"
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
                 placeholder="type 'about', 'projects', 'skills'..."
-                className="flex-1 bg-transparent text-[#2B231D] focus:outline-none placeholder:text-slate-600"
+                className="flex-1 bg-transparent text-[#2B231D] font-medium focus:outline-none placeholder:text-[#382E27]/50"
                 spellCheck="false"
               />
               <button type="submit" className="text-[#515154] hover:text-[#C75D35] transition-colors">

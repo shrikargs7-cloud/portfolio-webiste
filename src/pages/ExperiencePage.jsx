@@ -53,9 +53,9 @@ export default function ExperiencePage() {
     <SonarGrid
       color="#C75D35"
       interactive={true}
-      amplitude={2.5}
-      speed={300}
-      baseOpacity={0.15}
+      amplitude={1.1}
+      speed={240}
+      baseOpacity={0.06}
       className="relative min-h-screen w-full bg-[#F5F1EB] text-[#2B231D] selection:bg-lime-400 selection:text-black font-sans antialiased"
     >
       <TechBackground />
@@ -64,7 +64,7 @@ export default function ExperiencePage() {
       {/* Floating Back Button */}
       <Link 
         to="/"
-        className="fixed top-8 left-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF]/80 backdrop-blur-xl border border-[#2B231D]/10 text-[#2B231D] hover:bg-[#C75D35] hover:text-white transition-all shadow-lg hover:shadow-xl font-google text-sm font-medium"
+        className="fixed top-8 left-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF]/90 backdrop-blur-xl border border-[#2B231D]/25 text-[#2B231D] hover:bg-[#C75D35] hover:text-white transition-all shadow-lg hover:shadow-xl font-google text-sm font-medium"
         onMouseEnter={() => setCursorState({ label: 'Back' })}
         onMouseLeave={() => setCursorState({ label: null })}
       >
@@ -76,7 +76,7 @@ export default function ExperiencePage() {
           <h1 className="text-5xl md:text-7xl font-bold font-google text-[#2B231D] tracking-tight mb-6">
             Detailed <span className="text-[#C75D35] italic">Experience.</span>
           </h1>
-          <p className="text-lg md:text-xl text-[#73675E] font-light max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[#382E27] font-medium max-w-3xl mx-auto">
             A comprehensive overview of my professional internships, GitHub open-source contributions, and intense 48-hour hackathon ventures.
           </p>
         </div>
@@ -86,9 +86,9 @@ export default function ExperiencePage() {
         
         {/* Placeholder for GitHub Contribution Docx - user can add later */}
         <section className="w-full py-16 px-4 max-w-7xl mx-auto font-google">
-          <div className="p-8 rounded-3xl bg-[#FFFFFF]/60 border border-[#2B231D]/10 border-dashed text-center">
+          <div className="p-8 rounded-3xl bg-[#FFFFFF]/80 border-2 border-[#2B231D]/25 border-dashed text-center shadow-md">
             <h3 className="text-2xl font-bold text-[#2B231D] mb-2">GitHub Contribution Docx</h3>
-            <p className="text-[#73675E]">Placeholder for your detailed GitHub contributions document.</p>
+            <p className="text-[#382E27] font-medium">Placeholder for your detailed GitHub contributions document.</p>
           </div>
         </section>
 

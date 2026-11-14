@@ -98,7 +98,7 @@ export default function WebDesignList({ setCursorState }) {
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
           }}
-          className="rounded-3xl overflow-hidden bg-[#FFFFFF]/30 backdrop-blur-xl border border-[#2B231D]/10 p-2 md:p-4 shadow-xl"
+          className="rounded-3xl overflow-hidden bg-[#FFFFFF]/50 backdrop-blur-xl border-2 border-[#2B231D]/25 p-2 md:p-4 shadow-xl"
         >
           {webProjects.map((item, index) => (
             <a href={item.link} target="_blank" rel="noreferrer" key={item.id} className="block group">
@@ -115,23 +115,23 @@ export default function WebDesignList({ setCursorState }) {
                   setHoveredWeb(null);
                   setCursorState && setCursorState({ label: null });
                 }}
-                className={`flex items-center justify-between gap-6 py-8 md:py-10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer hover:bg-[#FFFFFF]/70 hover:shadow-lg rounded-2xl px-6 border border-transparent hover:border-[#2B231D]/5`}
+                className={`flex items-center justify-between gap-6 py-8 md:py-10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer hover:bg-[#FFFFFF]/90 hover:shadow-lg rounded-2xl px-6 border border-transparent hover:border-[#2B231D]/20`}
               >
                 <div className="flex items-baseline gap-6 md:gap-10">
-                  <span className="font-mono text-xs text-[#C75D35]/80 font-bold transition-colors duration-500 group-hover:text-[#C75D35]">
+                  <span className="font-mono text-xs text-[#C75D35] font-bold transition-colors duration-500">
                     {item.year}
                   </span>
                   <div>
-                    <h3 className="text-[#2B231D]/80 font-google text-[clamp(24px,4.5vw,64px)] font-bold leading-tight tracking-tight group-hover:translate-x-3 transition-all duration-500 group-hover:text-[#2B231D]">
+                    <h3 className="text-[#2B231D] font-google text-[clamp(24px,4.5vw,64px)] font-bold leading-tight tracking-tight group-hover:translate-x-3 transition-all duration-500">
                       {item.title}
                     </h3>
-                    <p className="font-google text-xs md:text-sm text-[#73675E] mt-2 opacity-80 group-hover:opacity-100 transition-all duration-300 font-medium">
+                    <p className="font-google text-xs md:text-sm text-[#382E27] mt-2 transition-all duration-300 font-medium">
                       {item.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-full border border-[#2B231D]/5 text-[#73675E] group-hover:border-[#C75D35] group-hover:bg-[#C75D35] group-hover:text-[#FFFFFF] group-hover:scale-110 transition-all duration-500 bg-[#FFFFFF]/60 backdrop-blur-sm shadow-sm flex items-center gap-2">
+                <div className="p-3.5 rounded-full border border-[#2B231D]/20 text-[#382E27] group-hover:border-[#C75D35] group-hover:bg-[#C75D35] group-hover:text-[#FFFFFF] group-hover:scale-110 transition-all duration-500 bg-[#FFFFFF] shadow-sm flex items-center gap-2">
                   <span className="text-[10px] uppercase font-bold tracking-widest hidden group-hover:inline-block font-mono pl-2">View Source</span>
                   <ArrowUpRight className="w-5 h-5" />
                 </div>

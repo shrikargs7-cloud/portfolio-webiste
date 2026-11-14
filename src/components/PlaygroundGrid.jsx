@@ -65,7 +65,7 @@ export default function PlaygroundGrid({ setCursorState }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6 md:mb-8">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="font-google flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#73675E]">
+              <span className="font-google flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#382E27] font-semibold">
                 <span className="h-2 w-2 rounded-full bg-[#C75D35] animate-ping" />
                 R&amp;D Experiments
               </span>
@@ -75,7 +75,7 @@ export default function PlaygroundGrid({ setCursorState }) {
               Playground
             </h2>
           </div>
-          <p className="font-google max-w-md text-base text-[#73675E] font-light">
+          <p className="font-google max-w-md text-base text-[#382E27] font-normal">
             A sandbox for self-initiated products, spatial prototypes, and vibe-coded creative tools driven by curiosity.
           </p>
         </div>
@@ -94,20 +94,20 @@ export default function PlaygroundGrid({ setCursorState }) {
                   transition={{ type: "spring", stiffness: 220, damping: 20, delay: idx * 0.1 }}
                   onMouseEnter={() => setCursorState && setCursorState({ label: 'GitHub' })}
                   onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-                  className="relative h-full rounded-3xl p-7 border border-[#2B231D]/5 group-hover:border-[#D09B65]/50 transition-all duration-500 flex flex-col justify-between bg-[#FFFFFF]/40 backdrop-blur-xl shadow-2xl group-hover:shadow-[0_0_30px_rgba(163,230,53,0.15)] overflow-hidden"
+                  className="relative h-full rounded-3xl p-7 border-2 border-[#2B231D]/25 group-hover:border-[#C75D35] transition-all duration-500 flex flex-col justify-between bg-[#FFFFFF]/60 backdrop-blur-xl shadow-xl group-hover:shadow-[0_0_30px_rgba(199,93,53,0.15)] overflow-hidden"
                 >
                   {/* Tech Reticle Corners */}
-                  <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
-                  <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
-                  <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
-                  <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-[#2B231D]/20 group-hover:border-[#D09B65]/80 transition-colors pointer-events-none" />
+                  <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-[#2B231D]/40 group-hover:border-[#C75D35] transition-colors pointer-events-none" />
+                  <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-[#2B231D]/40 group-hover:border-[#C75D35] transition-colors pointer-events-none" />
+                  <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-[#2B231D]/40 group-hover:border-[#C75D35] transition-colors pointer-events-none" />
+                  <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-[#2B231D]/40 group-hover:border-[#C75D35] transition-colors pointer-events-none" />
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-full bg-[#F5F1EB]/80 border border-[#2B231D]/5 font-mono text-[11px] text-[#73675E]">
+                      <span className="px-3 py-1 rounded-full bg-[#F5F1EB] border border-[#2B231D]/20 font-mono text-[11px] text-[#382E27] font-semibold">
                         {item.type}
                       </span>
-                      <span className="px-3 py-1 rounded-full bg-[#C75D35]/10 border border-[#D09B65]/20 font-mono text-[11px] text-[#C75D35]">
+                      <span className="px-3 py-1 rounded-full bg-[#C75D35]/10 border border-[#D09B65]/30 font-mono text-[11px] text-[#C75D35] font-semibold">
                         {item.tag}
                       </span>
                     </div>
@@ -115,13 +115,13 @@ export default function PlaygroundGrid({ setCursorState }) {
                     <h3 className="font-google text-2xl font-bold text-[#2B231D] group-hover:text-[#C75D35] transition-colors duration-500">
                       {item.title}
                     </h3>
-                    <p className="font-google text-sm text-[#73675E] leading-relaxed font-light">
+                    <p className="font-google text-sm text-[#382E27] leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
                   <div className="pt-6 mt-auto flex justify-end">
-                    <div className="p-2 rounded-full bg-[#F5F1EB]/80 text-[#73675E] group-hover:bg-[#C75D35] group-hover:text-white transition-all duration-300 shadow-lg flex items-center gap-2">
+                    <div className="p-2 rounded-full bg-[#F5F1EB] border border-[#2B231D]/20 text-[#382E27] group-hover:bg-[#C75D35] group-hover:text-white transition-all duration-300 shadow-md flex items-center gap-2">
                       <span className="text-[10px] uppercase font-bold tracking-widest hidden group-hover:inline-block font-mono pl-2">View Code</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </div>

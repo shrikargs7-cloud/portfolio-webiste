@@ -28,7 +28,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-base md:text-xl text-[#73675E] font-google max-w-2xl"
+          className="text-base md:text-xl text-[#382E27] font-medium font-google max-w-2xl"
         >
           A curated selection of bespoke digital systems, built with precision and care.
         </motion.p>
@@ -50,7 +50,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -4 }}
-              className="w-full h-full max-h-[78vh] overflow-hidden max-w-7xl bg-[#FFFFFF]/95 backdrop-blur-2xl p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 shadow-[0_-12px_36px_rgba(43,35,29,0.1)] hover:shadow-[0_20px_50px_rgba(199,93,53,0.15)] border border-[#2B231D]/10 hover:border-[#C75D35]/30 rounded-3xl transition-all duration-300 group relative"
+              className="w-full h-full max-h-[78vh] overflow-hidden max-w-7xl bg-[#FFFFFF]/95 backdrop-blur-2xl p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 shadow-[0_-12px_36px_rgba(43,35,29,0.12)] hover:shadow-[0_20px_50px_rgba(199,93,53,0.18)] border-2 border-[#2B231D]/25 hover:border-[#C75D35] rounded-3xl transition-all duration-300 group relative"
             >
               
               <div className="flex-1 space-y-3 sm:space-y-4 md:space-y-5 flex flex-col justify-center min-w-0">
@@ -58,7 +58,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }} transition={{ delay: 0.3 }}
-                  className="font-google text-xs md:text-sm font-medium text-[#C75D35] tracking-wide uppercase"
+                  className="font-google text-xs md:text-sm font-bold text-[#C75D35] tracking-wide uppercase"
                 >
                   0{idx + 1} — {project.category.split('•')[0].trim()}
                 </motion.span>
@@ -76,7 +76,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }} transition={{ delay: 0.5 }}
-                  className="text-xs sm:text-sm md:text-base text-[#73675E] font-google max-w-lg leading-relaxed line-clamp-3 md:line-clamp-4"
+                  className="text-xs sm:text-sm md:text-base text-[#382E27] font-normal font-google max-w-lg leading-relaxed line-clamp-3 md:line-clamp-4"
                 >
                   {project.desc}
                 </motion.p>
@@ -88,7 +88,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                   className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2"
                 >
                   {project.technologies.slice(0, 4).map((tech, i) => (
-                    <span key={i} className="px-2.5 py-1 md:px-3 md:py-1 rounded-full bg-[#F5F1EB] border border-[#2B231D]/5 text-[#2B231D] font-google text-[10px] md:text-xs font-medium hover:bg-[#FFFFFF] transition-colors">
+                    <span key={i} className="px-2.5 py-1 md:px-3 md:py-1 rounded-full bg-[#F5F1EB] border border-[#2B231D]/20 text-[#2B231D] font-google text-[10px] md:text-xs font-semibold hover:bg-[#FFFFFF] transition-colors shadow-xs">
                       {tech}
                     </span>
                   ))}
@@ -116,7 +116,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                       rel="noreferrer"
                       onMouseEnter={() => setCursorState && setCursorState({ label: 'GitHub' })}
                       onMouseLeave={() => setCursorState && setCursorState({ label: null })}
-                      className="p-2.5 md:p-3.5 rounded-full bg-[#F5F1EB] hover:bg-[#FFFFFF] text-[#2B231D] transition-colors border border-[#2B231D]/5 hover:scale-105"
+                      className="p-2.5 md:p-3.5 rounded-full bg-[#F5F1EB] hover:bg-[#FFFFFF] text-[#2B231D] transition-colors border border-[#2B231D]/20 hover:scale-105 shadow-xs"
                     >
                       <Github className="w-4 h-4 md:w-5 md:h-5" />
                     </a>
@@ -128,7 +128,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
               <motion.div 
                 whileHover={{ scale: 1.02, rotateY: -5, rotateX: 5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="flex-1 w-full h-[220px] sm:h-[260px] md:h-full md:max-h-[380px] relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-[#2B231D]/10 bg-[#1A1511] shadow-xl perspective-1000 shrink-0 group/img"
+                className="flex-1 w-full h-[220px] sm:h-[260px] md:h-full md:max-h-[380px] relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-2 border-[#2B231D]/25 bg-[#1A1511] shadow-xl perspective-1000 shrink-0 group/img"
               >
                 {project.image ? (
                   <div className="absolute inset-0 w-full h-full">
@@ -139,17 +139,17 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#F5F1EB] to-[#FFFFFF]" />
                 )}
 
-                {/* Ambient Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#C75D35]/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-[#C75D35]/20 transition-colors duration-1000" />
+                {/* Ambient Glow Lightened */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#C75D35]/3 blur-[90px] rounded-full pointer-events-none group-hover:bg-[#C75D35]/10 transition-colors duration-1000" />
                 
                 {/* Mock UI Overlay */}
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }} transition={{ delay: 0.8, duration: 0.8 }}
-                  className={`absolute inset-4 md:inset-8 border border-[#FFFFFF]/10 ${project.image ? 'bg-[#1A1511]/40 text-white' : 'bg-[#FFFFFF]/60 text-[#2B231D] border-[#2B231D]/5'} backdrop-blur-xl rounded-2xl flex flex-col p-4 md:p-6 font-google shadow-2xl`}
+                  className={`absolute inset-4 md:inset-8 border border-[#FFFFFF]/10 ${project.image ? 'bg-[#1A1511]/40 text-white' : 'bg-[#FFFFFF]/75 text-[#2B231D] border-2 border-[#2B231D]/20'} backdrop-blur-xl rounded-2xl flex flex-col p-4 md:p-6 font-google shadow-2xl`}
                 >
-                  <div className={`flex justify-between items-center mb-8 border-b ${project.image ? 'border-[#FFFFFF]/10' : 'border-[#2B231D]/5'} pb-4`}>
+                  <div className={`flex justify-between items-center mb-8 border-b ${project.image ? 'border-[#FFFFFF]/10' : 'border-[#2B231D]/15'} pb-4`}>
                     <div className="flex gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-400" />
                       <div className="w-3 h-3 rounded-full bg-amber-400" />
