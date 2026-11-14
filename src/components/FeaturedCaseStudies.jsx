@@ -6,36 +6,64 @@ import CaseStudyModal from './CaseStudyModal';
 
 export default function FeaturedCaseStudies({ setCursorState }) {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeFilter, setActiveFilter] = useState('ALL');
 
-  // Take top 4 flagship projects for the cinematic sticky stack
-  const flagshipProjects = PROJECTS_DATA.slice(0, 4);
+  const filters = ['ALL', 'AI & VISION', 'AGENTIC AI', 'AUTOMATION'];
+
+  // Filter projects dynamically
+  const filteredProjects = PROJECTS_DATA.filter((p) => {
+    if (activeFilter === 'ALL') return true;
+    if (activeFilter === 'AI & VISION') return p.category.includes('Vision') || p.category.includes('Healthcare');
+    if (activeFilter === 'AGENTIC AI') return p.category.includes('Agent') || p.category.includes('NLP');
+    if (activeFilter === 'AUTOMATION') return p.category.includes('Automation') || p.category.includes('Cloud');
+    return true;
+  }).slice(0, 5);
 
   return (
     <section id="projects" className="relative w-full bg-transparent py-8 md:py-12 z-20">
       
-      <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-8">
-        <motion.h2 
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-3xl sm:text-4xl md:text-6xl font-google font-semibold text-[#2B231D] tracking-tight mb-2 md:mb-3"
-        >
-          Crafted Projects
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-base md:text-xl text-[#382E27] font-medium font-google max-w-2xl"
-        >
-          A curated selection of bespoke digital systems, built with precision and care.
-        </motion.p>
+      <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl sm:text-4xl md:text-6xl font-google font-semibold text-[#2B231D] tracking-tight mb-2 md:mb-3"
+          >
+            Crafted Projects
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-base md:text-xl text-[#382E27] font-medium font-google max-w-2xl"
+          >
+            A curated selection of bespoke digital systems, built with precision and care.
+          </motion.p>
+        </div>
+
+        {/* Interactive Filter Pills */}
+        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-[#FFFFFF]/80 border-2 border-[#2B231D]/20 shadow-sm backdrop-blur-xl">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${
+                activeFilter === filter
+                  ? 'bg-[#C75D35] text-white shadow-xs'
+                  : 'text-[#382E27] hover:text-[#2B231D] hover:bg-[#F5F1EB]'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="relative w-full">
-        {flagshipProjects.map((project, idx) => (
+        {filteredProjects.map((project, idx) => (
           <div
             key={project.id}
             className="sticky w-full h-[82vh] md:h-[80vh] flex items-center justify-center p-3 sm:p-6 mb-8"

@@ -9,18 +9,17 @@ export default function SectionTransition({ children, className = "", id, disabl
     offset: ["start end", "end start"]
   });
 
-  // Dynamic fluid Apple-style entry & exit:
-  // Distinct spring-like scaling and elevation without sluggishness
-  const scale = useTransform(scrollYProgress, [0, 0.16, 0.84, 1], [0.91, 1, 1, 0.93]);
-  const opacity = useTransform(scrollYProgress, [0, 0.14, 0.86, 1], [0, 1, 1, 0.15]);
-  const y = useTransform(scrollYProgress, [0, 0.16, 0.84, 1], [65, 0, 0, -45]);
+  // Zero-latency smooth entry & exit:
+  // Subtle, high-performance transforms that don't delay or lag the user experience
+  const opacity = useTransform(scrollYProgress, [0, 0.08, 0.92, 1], [0.4, 1, 1, 0.6]);
+  const scale = useTransform(scrollYProgress, [0, 0.08, 0.92, 1], [0.985, 1, 1, 0.985]);
 
   return (
     <motion.div
       id={id}
       ref={containerRef}
-      style={disableTransform ? { opacity } : { scale, opacity, y }}
-      className={`w-full py-6 md:py-10 flex flex-col justify-center ${!disableTransform ? 'will-change-transform' : ''} ${className}`}
+      style={disableTransform ? { opacity } : { scale, opacity }}
+      className={`w-full py-4 md:py-8 flex flex-col justify-center will-change-transform ${className}`}
     >
       {children}
     </motion.div>

@@ -21,22 +21,28 @@ import {
   FileText,
   Palette,
   Command,
-  X
+  X,
+  Briefcase,
+  Trophy,
+  Code2
 } from 'lucide-react';
 
 const DOCK_SECTIONS = [
   { id: 'top', label: 'Hero', icon: Home, tag: '01', desc: 'Kinetic typography & greeting' },
   { id: 'about', label: 'About', icon: User, tag: '02', desc: 'RV University & 4 core pillars' },
-  { id: 'projects', label: 'Projects', icon: Layers, tag: '03', desc: 'OcuPulse, Agent Swarm & Vega AI' },
-  { id: 'dashboard', label: 'Metrics', icon: Activity, tag: '04', desc: '480+ commits, LeetCode analytics' },
-  { id: 'skills', label: 'Skills', icon: Cpu, tag: '05', desc: 'AI/ML, RAG, Full-Stack, Cloud' },
-  { id: 'certificates', label: 'Credentials', icon: Award, tag: '06', desc: 'Verified certifications & degrees' },
-  { id: 'experience_page', label: 'Experience', icon: Orbit, tag: '07', desc: 'Internships, Hackathons & GitHub' },
-  { id: 'playground', label: 'R&D', icon: FlaskConical, tag: '08', desc: 'ContextLens, Hermes ESP32 & IoT' },
-  { id: 'web-design', label: 'Web Design', icon: Palette, tag: '09', desc: 'Digital surfaces & UI architectures' },
-  { id: 'performance', label: 'System Docs', icon: FileText, tag: '10', desc: 'Architecture specs & whitepapers' },
-  { id: 'vibe-terminal', label: 'Terminal', icon: Terminal, tag: '11', desc: 'Interactive bash CLI shell' },
-  { id: 'contact', label: 'Contact', icon: Mail, tag: '12', desc: 'Direct mail & engineering roles' },
+  { id: 'experience-pro', label: 'Experience', icon: Briefcase, tag: '03', desc: 'Production systems & internships' },
+  { id: 'projects', label: 'Projects', icon: Layers, tag: '04', desc: 'OcuPulse, Agent Swarm & Vega AI' },
+  { id: 'opensource', label: 'Open Source', icon: Code2, tag: '05', desc: 'Repositories, PRs & code diffs' },
+  { id: 'hackathons', label: 'Hackathons', icon: Trophy, tag: '06', desc: 'Agentic AI World Cup & sprints' },
+  { id: 'dashboard', label: 'Metrics', icon: Activity, tag: '07', desc: '480+ commits, LeetCode analytics' },
+  { id: 'skills', label: 'Skills', icon: Cpu, tag: '08', desc: 'AI/ML, RAG, Full-Stack, Cloud' },
+  { id: 'milestones', label: 'Milestones', icon: Orbit, tag: '09', desc: 'Radial radar & orbital milestones' },
+  { id: 'certificates', label: 'Credentials', icon: Award, tag: '10', desc: 'Verified certifications & degrees' },
+  { id: 'playground', label: 'R&D', icon: FlaskConical, tag: '11', desc: 'ContextLens, Hermes ESP32 & IoT' },
+  { id: 'web-design', label: 'Web Design', icon: Palette, tag: '12', desc: 'Digital surfaces & UI architectures' },
+  { id: 'performance', label: 'System Docs', icon: FileText, tag: '13', desc: 'Architecture specs & whitepapers' },
+  { id: 'vibe-terminal', label: 'Terminal', icon: Terminal, tag: '14', desc: 'Interactive bash CLI shell' },
+  { id: 'contact', label: 'Contact', icon: Mail, tag: '15', desc: 'Direct mail & engineering roles' },
 ];
 
 /**

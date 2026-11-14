@@ -9,9 +9,13 @@ import SectionHUD from '../components/SectionHUD';
 import HeroCinematic from '../components/HeroCinematic';
 import Marquee from '../components/Marquee';
 import AboutRvUniversity from '../components/AboutRvUniversity';
+import ProfessionalExperience from '../components/ProfessionalExperience';
 import FeaturedCaseStudies from '../components/FeaturedCaseStudies';
+import OpenSourceContributions from '../components/OpenSourceContributions';
+import HackathonShowcase from '../components/HackathonShowcase';
 import CodingDashboard from '../components/CodingDashboard';
 import SkillsCategoryGrid from '../components/SkillsCategoryGrid';
+import ExperienceTimeline from '../components/ExperienceTimeline';
 import CertificatesGallery from '../components/CertificatesGallery';
 import PlaygroundGrid from '../components/PlaygroundGrid';
 import WebDesignList from '../components/WebDesignList';
@@ -36,26 +40,30 @@ export default function Home() {
   const sections = [
     { id: 'top', label: 'Hero', tag: '01' },
     { id: 'about', label: 'About', tag: '02' },
-    { id: 'projects', label: 'Projects', tag: '03' },
-    { id: 'dashboard', label: 'Metrics', tag: '04' },
-    { id: 'skills', label: 'Skills', tag: '05' },
-    { id: 'certificates', label: 'Certificates', tag: '06' },
-    { id: 'playground', label: 'Playground', tag: '07' },
-    { id: 'web-design', label: 'Designs', tag: '08' },
-    { id: 'performance', label: 'Performance', tag: '09' },
-    { id: 'vibe-terminal', label: 'Terminal', tag: '10' },
-    { id: 'contact', label: 'Contact', tag: '11' },
+    { id: 'experience-pro', label: 'Experience', tag: '03' },
+    { id: 'projects', label: 'Projects', tag: '04' },
+    { id: 'opensource', label: 'Open Source', tag: '05' },
+    { id: 'hackathons', label: 'Hackathons', tag: '06' },
+    { id: 'dashboard', label: 'Metrics', tag: '07' },
+    { id: 'skills', label: 'Skills', tag: '08' },
+    { id: 'experience', label: 'Milestones', tag: '09' },
+    { id: 'certificates', label: 'Certificates', tag: '10' },
+    { id: 'playground', label: 'Playground', tag: '11' },
+    { id: 'web-design', label: 'Designs', tag: '12' },
+    { id: 'performance', label: 'Performance', tag: '13' },
+    { id: 'vibe-terminal', label: 'Terminal', tag: '14' },
+    { id: 'contact', label: 'Contact', tag: '15' },
   ];
 
-  // Initialize Lenis with gentle, responsive momentum smooth scrolling
+  // Initialize Lenis with snappy, zero-latency smooth momentum scrolling
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2, // Balanced smooth deceleration without sluggish lag
+      duration: 0.8, // Fast, snappy response without sluggish lag
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0, // Natural responsive speed
+      wheelMultiplier: 1.15, // Responsive wheel navigation
       touchMultiplier: 1.2,
       infinite: false,
     });
@@ -111,7 +119,7 @@ export default function Home() {
     }
     const target = id === 'top' ? 0 : `#${id}`;
     lenisRef.current.scrollTo(target, {
-      duration: 1.4,
+      duration: 0.7, // Snappy immediate transition
       offset: -40,
     });
   };
@@ -169,9 +177,13 @@ export default function Home() {
       <main className="relative z-10 w-full flex flex-col ">
         <HeroCinematic setCursorState={setCursorState} onNavigate={scrollToSection} />
         <SectionTransition><AboutRvUniversity setCursorState={setCursorState} /></SectionTransition>
+        <SectionTransition><ProfessionalExperience setCursorState={setCursorState} /></SectionTransition>
         <FeaturedCaseStudies setCursorState={setCursorState} />
+        <SectionTransition><OpenSourceContributions setCursorState={setCursorState} /></SectionTransition>
+        <SectionTransition><HackathonShowcase setCursorState={setCursorState} /></SectionTransition>
         <SectionTransition><CodingDashboard setCursorState={setCursorState} /></SectionTransition>
         <SectionTransition><SkillsCategoryGrid setCursorState={setCursorState} /></SectionTransition>
+        <SectionTransition><ExperienceTimeline setCursorState={setCursorState} /></SectionTransition>
         <SectionTransition><CertificatesGallery setCursorState={setCursorState} /></SectionTransition>
         <SectionTransition><PlaygroundGrid setCursorState={setCursorState} /></SectionTransition>
         <SectionTransition><WebDesignList setCursorState={setCursorState} /></SectionTransition>
