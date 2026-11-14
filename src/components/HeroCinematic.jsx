@@ -35,7 +35,7 @@ export default function HeroCinematic({ setCursorState, onNavigate }) {
         <WavingPortfolioLanding 
           name="Shrikar GS"
           year="2026"
-          roles={["Software Engineer", "Full Stack"]}
+          roles={["Product Designer", "Design Engineer"]}
           lettersLeft={["P", "F"]}
           giantLetter="O"
           lettersRight={["RT", "LIO"]}
@@ -51,8 +51,21 @@ export default function HeroCinematic({ setCursorState, onNavigate }) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="absolute bottom-28 z-10 w-full px-6 flex flex-col items-center justify-center pointer-events-none"
+        className="absolute bottom-24 z-10 w-full px-6 flex flex-col items-center justify-center gap-4 pointer-events-none"
       >
+        {/* Recruiter 6-Second Signal Strip */}
+        <motion.div
+          variants={itemVariants}
+          className="pointer-events-auto inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#FFFFFF]/90 backdrop-blur-md border border-[#2B231D]/20 text-[11px] sm:text-xs font-mono font-semibold text-[#2B231D] shadow-sm"
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-500" />
+          <span>Design Systems &amp; UX Craft</span>
+          <span className="text-[#C75D35]">·</span>
+          <span>6 Merged Microsoft / OSS PRs</span>
+          <span className="text-[#C75D35]">·</span>
+          <span>Agentic AI World Cup Winner</span>
+        </motion.div>
+
         {/* Action Buttons */}
         <motion.div 
           variants={itemVariants}

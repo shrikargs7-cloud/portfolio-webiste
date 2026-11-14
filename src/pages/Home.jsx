@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import HeroCinematic from '../components/HeroCinematic';
 import AboutRvUniversity from '../components/AboutRvUniversity';
+import DesignSystemShowcase from '../components/DesignSystemShowcase';
 import PortfolioPagesPortal from '../components/PortfolioPagesPortal';
 import FeaturedCaseStudies from '../components/FeaturedCaseStudies';
 import InteractiveTerminal from '../components/InteractiveTerminal';
@@ -47,7 +48,12 @@ export default function Home({ setCursorState, scrollToId }) {
         <AboutRvUniversity setCursorState={setCursorState} />
       </SectionTransition>
 
-      {/* 3. Dedicated Portfolio Sections Gateway */}
+      {/* 3. Design System & Accessibility Showcase */}
+      <SectionTransition>
+        <DesignSystemShowcase setCursorState={setCursorState} />
+      </SectionTransition>
+
+      {/* 4. Dedicated Portfolio Sections Gateway */}
       <SectionTransition>
         <PortfolioPagesPortal setCursorState={setCursorState} />
       </SectionTransition>

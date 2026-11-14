@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
@@ -12,12 +12,12 @@ import CommandPalette from './components/CommandPalette';
 import { SonarGrid } from './components/ui/sonar-grid';
 import { PageTransitionWrapper } from './components/PageTransitionWrapper';
 
-import Home from './pages/Home';
-import ExperiencePage from './pages/ExperiencePage';
-import OpenSourcePage from './pages/OpenSourcePage';
-import SkillsPage from './pages/SkillsPage';
-import HackathonsPage from './pages/HackathonsPage';
-import ProjectsPage from './pages/ProjectsPage';
+const Home = lazy(() => import('./pages/Home'));
+const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
+const OpenSourcePage = lazy(() => import('./pages/OpenSourcePage'));
+const SkillsPage = lazy(() => import('./pages/SkillsPage'));
+const HackathonsPage = lazy(() => import('./pages/HackathonsPage'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -127,9 +127,10 @@ function AppShell() {
       <GlobalNavbar setCursorState={setCursorState} onOpenCommand={() => setCommandOpen(true)} />
       <CommandPalette isOpen={commandOpen} onClose={() => setCommandOpen(false)} />
 
-      {/* Animated Page Content */}
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
+      {/* Animated Page Content with Route-Level Code Splitting */}
+      <Suspense fallback={<div className="min-h-screen w-full" />}>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
           <Route
             path="/"
             element={
@@ -178,8 +179,9 @@ function AppShell() {
               </PageTransitionWrapper>
             }
           />
-        </Routes>
-      </AnimatePresence>
+            </Routes>
+          </AnimatePresence>
+      </Suspense>
     </SonarGrid>
   );
 }

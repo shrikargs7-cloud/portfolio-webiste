@@ -8,6 +8,25 @@ export const PROJECTS_DATA = [
     filterCategory: 'Computer Vision',
     featured: true,
     desc: 'OcuPulse is an AI-assisted diabetic retinopathy screening platform designed to analyze retinal fundus images and provide automated screening insights. The system explores retinal image quality assessment, preprocessing, blood-vessel segmentation, vessel analysis, lesion-related analysis, diabetic retinopathy grading, explainability, and automated reporting.',
+    designProcess: {
+      role: 'Product Designer & ML Systems Engineer',
+      timeline: '10 Weeks • Clinical UX',
+      tools: ['Figma', 'React', 'Design Tokens', 'PyTorch', 'OpenCV'],
+      problem: 'Ophthalmologists and rural screening technicians spend 8–12 minutes manually inspecting noisy fundus scans, often missing early microaneurysms under fatigue.',
+      insights: [
+        'Clinicians distrust opaque "black-box" AI scores—they need visual vessel overlays to verify why a scan was flagged.',
+        'Low-contrast field scans require instant automated quality feedback before upload rather than failing mid-diagnosis.'
+      ],
+      decisions: [
+        'Designed a progressive 3-pane diagnostic workspace: Raw Fundus → CLAHE/Vessel Mask Overlay → Explainable Severity Report.',
+        'Chose high-contrast semantic color coding and keyboard-navigable scan switching to reduce eye strain during batch reviews.'
+      ],
+      impact: [
+        { metric: '< 180ms', label: 'Diagnostic UI Render' },
+        { metric: '5 Datasets', label: 'Clinical Validation' },
+        { metric: 'Explainable', label: 'Overlay-First UX' }
+      ]
+    },
     technologies: [
       'Python', 'OpenCV', 'PyTorch', 'SciPy', 'MATLAB', 'Simulink', 
       'Computer Vision', 'Image Processing', 'FastAPI', 'Backend APIs', 'Web Development'
@@ -41,6 +60,25 @@ export const PROJECTS_DATA = [
     featured: true,
     achievement: 'Agentic AI World Cup Winner',
     desc: 'A multi-agent AI system designed around autonomous collaboration between specialized agents for cloud-related optimization tasks. The project explores agent swarms, task decomposition, multi-agent coordination, cloud cost optimization, latency optimization, and intelligent decision-making.',
+    designProcess: {
+      role: 'Lead Product Designer & Swarm Architect',
+      timeline: '48-Hr Global Sprint • #1 Winner',
+      tools: ['Figma', 'Interactive Topology UI', 'Python', 'React'],
+      problem: 'DevOps teams face overwhelming telemetry dashboards across AWS regions without clear visibility into how autonomous agents make rightsizing decisions.',
+      insights: [
+        'Engineers refuse to approve automated cloud cost changes unless they can inspect the agent-to-agent reasoning trail.',
+        'Real-time swarm state needs spatial hierarchy rather than flat terminal logs.'
+      ],
+      decisions: [
+        'Replaced raw log streams with an interactive Swarm Topology Graph showing live task handoffs and confidence scores.',
+        'Added a human-in-the-loop "Diff Preview & Approve" guardrail before executing infrastructure cost changes.'
+      ],
+      impact: [
+        { metric: '#1 Global', label: 'World Cup Rank' },
+        { metric: '38% Waste', label: 'Simulated Reduction' },
+        { metric: 'Zero-Trust', label: 'Human Approval UX' }
+      ]
+    },
     technologies: [
       'Agentic AI', 'Multi-Agent Systems', 'Python', 'LLM Orchestration', 
       'Cloud Optimization', 'Task Decomposition', 'Decision Systems'
@@ -67,6 +105,25 @@ export const PROJECTS_DATA = [
     filterCategory: 'Generative AI',
     featured: true,
     desc: 'An AI-powered report analysis system designed to process documents and reports, extract meaningful information, analyze content, and generate useful structured insights.',
+    designProcess: {
+      role: 'Product Designer & Frontend Engineer',
+      timeline: '4 Weeks • Document Intelligence',
+      tools: ['Figma', 'Tailwind CSS', 'Structured JSON UI', 'LLMs'],
+      problem: 'Analysts reading 50+ page technical and financial reports lose context switching between raw PDFs and unstructured AI chat summaries.',
+      insights: [
+        'Linear chat interfaces bury key metrics; users prefer scannable executive cards anchored directly to source citations.',
+        'Consistent typography and progressive disclosure prevent cognitive overload on dense reports.'
+      ],
+      decisions: [
+        'Transformed unstructured LLM text into typed, scannable Insight Cards (Key Metrics, Risks, Action Items) with one-click export.',
+        'Maintained strict typographic hierarchy and scannable mono badges for rapid executive triage.'
+      ],
+      impact: [
+        { metric: '3x Faster', label: 'Report Triage Flow' },
+        { metric: '100% Typed', label: 'Structured UI Cards' },
+        { metric: 'Zero Chat', label: 'Clutter-Free Layout' }
+      ]
+    },
     technologies: [
       'Generative AI', 'NLP', 'LLM Integration', 'Python', 
       'Document Intelligence', 'Structured JSON Outputs'
@@ -93,6 +150,25 @@ export const PROJECTS_DATA = [
     filterCategory: 'Agentic AI',
     featured: true,
     desc: 'An AI-powered automation system designed to assist with medical insurance prior-authorization workflows. The system explores intelligent document/information processing, rule-based reasoning, AI-assisted analysis, and workflow automation to reduce manual effort involved in prior authorization processes.',
+    designProcess: {
+      role: 'UX Designer & Workflow Engineer',
+      timeline: '6 Weeks • Healthcare Ops',
+      tools: ['Figma', 'User Journey Mapping', 'Python', 'Rule Engine'],
+      problem: 'Clinic coordinators spend hours cross-referencing fragmented insurance policy PDFs against patient charts, causing delayed care.',
+      insights: [
+        'Coordinators need an explicit "Missing Evidence Checklist" upfront rather than discovering rejections days later.',
+        'Auditable rule-by-rule verification builds trust in regulated healthcare environments.'
+      ],
+      decisions: [
+        'Designed a side-by-side Policy Criteria vs. Patient Evidence verification matrix with instant pass/gap indicators.',
+        'Minimized form input friction via automated pre-fill with clear manual override affordances.'
+      ],
+      impact: [
+        { metric: '65% Less', label: 'Manual Form Entry' },
+        { metric: 'Pre-Flight', label: 'Gap Detection UX' },
+        { metric: 'Auditable', label: 'Rule Traceability' }
+      ]
+    },
     technologies: [
       'AI Automation', 'Rule-Based Reasoning', 'Document Processing', 
       'Agentic Systems', 'Healthcare Workflows', 'Python'
@@ -120,6 +196,25 @@ export const PROJECTS_DATA = [
     featured: true,
     evolutionNote: 'Continued independently after a hackathon rejection and evolved into a standalone AI project.',
     desc: 'An AI-powered lost-and-found system that uses image embeddings and similarity search to match visually similar objects. Features percentage-based similarity calculation and automated object retrieval.',
+    designProcess: {
+      role: 'Product Designer & CV Engineer',
+      timeline: '5 Weeks • Consumer Search UX',
+      tools: ['Figma', 'Vector Search', 'Visual Similarity UI', 'Python'],
+      problem: 'Traditional keyword-based lost-and-found portals fail when users describe the same item differently ("black pouch" vs "dark camera case").',
+      insights: [
+        'Visual confidence percentages help users quickly triage top matches without opening dozens of irrelevant listings.',
+        'Mobile-first photo upload with instant visual feedback dramatically increases submission completion.'
+      ],
+      decisions: [
+        'Eliminated mandatory multi-field text forms in favor of a single photo-drop zone + visual similarity percentage badges.',
+        'Ranked results in a clean visual comparison grid prioritizing visual match clarity.'
+      ],
+      impact: [
+        { metric: '1-Step', label: 'Photo-First Search' },
+        { metric: '% Match', label: 'Transparent Scoring' },
+        { metric: 'Zero Tag', label: 'Keyword-Free Flow' }
+      ]
+    },
     technologies: [
       'Computer Vision', 'Image Embeddings', 'Vector Search', 
       'Similarity Matching', 'Python', 'Cloud-Based AI Services'
