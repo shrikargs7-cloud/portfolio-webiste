@@ -2,24 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useNavigate } from 'react-router-dom';
 import CustomCursor from '../components/CustomCursor';
-import FloatingDoc from '../components/FloatingDoc';
 import TechBackground from '../components/TechBackground';
-import SectionHUD from '../components/SectionHUD';
+import GlobalNavbar from '../components/GlobalNavbar';
 import HeroCinematic from '../components/HeroCinematic';
-import Marquee from '../components/Marquee';
 import AboutRvUniversity from '../components/AboutRvUniversity';
-import ProfessionalExperience from '../components/ProfessionalExperience';
+import PortfolioPagesPortal from '../components/PortfolioPagesPortal';
 import FeaturedCaseStudies from '../components/FeaturedCaseStudies';
-import OpenSourceContributions from '../components/OpenSourceContributions';
-import HackathonShowcase from '../components/HackathonShowcase';
-import CodingDashboard from '../components/CodingDashboard';
-import SkillsCategoryGrid from '../components/SkillsCategoryGrid';
-import ExperienceTimeline from '../components/ExperienceTimeline';
-import CertificatesGallery from '../components/CertificatesGallery';
-import PlaygroundGrid from '../components/PlaygroundGrid';
-import WebDesignList from '../components/WebDesignList';
-import PerformanceDeck from '../components/PerformanceDeck';
 import InteractiveTerminal from '../components/InteractiveTerminal';
 import ContactFooter from '../components/ContactFooter';
 import SectionTransition from '../components/SectionTransition';
@@ -29,71 +19,33 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-import { useNavigate } from 'react-router-dom';
-
 export default function Home() {
   const [cursorState, setCursorState] = useState({ label: null });
-  const [activeSection, setActiveSection] = useState(0);
   const lenisRef = useRef(null);
   const navigate = useNavigate();
 
-  const sections = [
-    { id: 'top', label: 'Hero', tag: '01' },
-    { id: 'about', label: 'About', tag: '02' },
-    { id: 'experience-pro', label: 'Experience', tag: '03' },
-    { id: 'projects', label: 'Projects', tag: '04' },
-    { id: 'opensource', label: 'Open Source', tag: '05' },
-    { id: 'hackathons', label: 'Hackathons', tag: '06' },
-    { id: 'dashboard', label: 'Metrics', tag: '07' },
-    { id: 'skills', label: 'Skills', tag: '08' },
-    { id: 'experience', label: 'Milestones', tag: '09' },
-    { id: 'certificates', label: 'Certificates', tag: '10' },
-    { id: 'playground', label: 'Playground', tag: '11' },
-    { id: 'web-design', label: 'Designs', tag: '12' },
-    { id: 'performance', label: 'Performance', tag: '13' },
-    { id: 'vibe-terminal', label: 'Terminal', tag: '14' },
-    { id: 'contact', label: 'Contact', tag: '15' },
-  ];
-
-  // Initialize Lenis with snappy, zero-latency smooth momentum scrolling
+  // Snappy, smooth Lenis scrolling
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.8, // Fast, snappy response without sluggish lag
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.15, // Responsive wheel navigation
+      wheelMultiplier: 1.15,
       touchMultiplier: 1.2,
       infinite: false,
     });
 
     lenisRef.current = lenis;
 
-    // Synchronize Lenis and GSAP Ticker for zero-jitter 60fps/120fps scrolling
     const updateTicker = (time) => {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(updateTicker);
     gsap.ticker.lagSmoothing(0);
-
-    // Track active section as user scrolls
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight * 0.35;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i].id);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(i);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    lenis.on('scroll', handleScroll);
     lenis.on('scroll', ScrollTrigger.update);
 
-    // Refresh ScrollTrigger once DOM settles
     const refreshTimer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 400);
@@ -101,17 +53,33 @@ export default function Home() {
     return () => {
       clearTimeout(refreshTimer);
       gsap.ticker.remove(updateTicker);
-      window.removeEventListener('scroll', handleScroll);
       lenis.destroy();
     };
   }, []);
 
   const scrollToSection = (id) => {
-    if (id === 'experience_page') {
+    // Route handling if passed a route id
+    if (id === 'experience' || id === 'experience-pro') {
       navigate('/experience');
       return;
     }
-    
+    if (id === 'opensource') {
+      navigate('/opensource');
+      return;
+    }
+    if (id === 'skills') {
+      navigate('/skills');
+      return;
+    }
+    if (id === 'hackathons') {
+      navigate('/hackathons');
+      return;
+    }
+    if (id === 'projects') {
+      navigate('/projects');
+      return;
+    }
+
     if (!lenisRef.current) {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -119,25 +87,9 @@ export default function Home() {
     }
     const target = id === 'top' ? 0 : `#${id}`;
     lenisRef.current.scrollTo(target, {
-      duration: 0.7, // Snappy immediate transition
+      duration: 0.7,
       offset: -40,
     });
-  };
-
-  const handleSelectSection = (index) => {
-    if (sections[index]) {
-      scrollToSection(sections[index].id);
-    }
-  };
-
-  const handleNext = () => {
-    const nextIdx = Math.min(activeSection + 1, sections.length - 1);
-    handleSelectSection(nextIdx);
-  };
-
-  const handlePrev = () => {
-    const prevIdx = Math.max(activeSection - 1, 0);
-    handleSelectSection(prevIdx);
   };
 
   return (
@@ -147,48 +99,43 @@ export default function Home() {
       amplitude={1.1}
       speed={240}
       baseOpacity={0.06}
-      className="relative min-h-screen w-full bg-[#F5F1EB] text-[#2B231D] selection:bg-lime-400 selection:text-black font-sans antialiased"
+      className="relative min-h-screen w-full bg-[#F5F1EB] text-[#2B231D] selection:bg-[#C75D35] selection:text-white font-sans antialiased"
     >
-      {/* Dynamic Interactive Cyber Tech Canvas Background */}
+      {/* Dynamic Cyber Tech Canvas */}
       <TechBackground />
 
-      {/* Custom Follower Cursor */}
+      {/* Follower Cursor */}
       <CustomCursor cursorState={cursorState} />
 
-      {/* Floating Cyber Command Dock (Hover to Reveal Everything) */}
-      <FloatingDoc 
-        setCursorState={setCursorState} 
-        onNavigate={scrollToSection} 
-        activeSection={activeSection}
-        sections={sections}
-      />
+      {/* Unified Global Top Navbar with Instant Routing */}
+      <GlobalNavbar setCursorState={setCursorState} />
 
-      {/* Section Progress Bar, Vertical Rail, & Bottom Controller HUD */}
-      <SectionHUD
-        sections={sections}
-        activeSection={activeSection}
-        onSelectSection={handleSelectSection}
-        onNext={handleNext}
-        onPrev={handlePrev}
-        setCursorState={setCursorState}
-      />
-
-      {/* Continuous Page Sections Flow with Smooth Scroll and Strict Snapping */}
-      <main className="relative z-10 w-full flex flex-col ">
+      {/* Clean, Executive Page Flow */}
+      <main className="relative z-10 w-full flex flex-col pt-16">
+        {/* 1. Cinematic Hero */}
         <HeroCinematic setCursorState={setCursorState} onNavigate={scrollToSection} />
-        <SectionTransition><AboutRvUniversity setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><ProfessionalExperience setCursorState={setCursorState} /></SectionTransition>
-        <FeaturedCaseStudies setCursorState={setCursorState} />
-        <SectionTransition><OpenSourceContributions setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><HackathonShowcase setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><CodingDashboard setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><SkillsCategoryGrid setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><ExperienceTimeline setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><CertificatesGallery setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><PlaygroundGrid setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><WebDesignList setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><PerformanceDeck setCursorState={setCursorState} /></SectionTransition>
-        <SectionTransition><InteractiveTerminal setCursorState={setCursorState} /></SectionTransition>
+
+        {/* 2. Academic Foundation & Orbit Radar (Image 1) */}
+        <SectionTransition>
+          <AboutRvUniversity setCursorState={setCursorState} />
+        </SectionTransition>
+
+        {/* 3. Dedicated Portfolio Sections Gateway */}
+        <SectionTransition>
+          <PortfolioPagesPortal setCursorState={setCursorState} />
+        </SectionTransition>
+
+        {/* 4. Flagship Case Studies Spotlight */}
+        <SectionTransition>
+          <FeaturedCaseStudies setCursorState={setCursorState} />
+        </SectionTransition>
+
+        {/* 5. Interactive Terminal */}
+        <SectionTransition>
+          <InteractiveTerminal setCursorState={setCursorState} />
+        </SectionTransition>
+
+        {/* 6. Contact & Footer */}
         <ContactFooter setCursorState={setCursorState} onNavigate={scrollToSection} />
       </main>
     </SonarGrid>
