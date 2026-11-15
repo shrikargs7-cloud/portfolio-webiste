@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
-import { Sparkles, Crosshair, Orbit, Disc } from 'lucide-react';
+import { Sparkles, Crosshair, Orbit, Layers, Wand2 } from 'lucide-react';
 
 const CURSOR_MODES = [
+  { id: 'multi', label: 'Multi', icon: Layers },
   { id: 'ribbon', label: 'Ribbon', icon: Sparkles },
   { id: 'orbital', label: 'Orbital', icon: Orbit },
   { id: 'crosshair', label: 'Grid', icon: Crosshair },
-  { id: 'halo', label: 'Halo', icon: Disc }
+  { id: 'particles', label: 'Sparks', icon: Wand2 }
 ];
 
 function OrbitingMoon({ mouseX, mouseY, index, isVisible, hasLabel }) {
@@ -32,10 +33,10 @@ function OrbitingMoon({ mouseX, mouseY, index, isVisible, hasLabel }) {
         translateY: '-50%',
         width: 4,
         height: 4,
-        opacity: isVisible && !hasLabel ? 0.85 - index * 0.1 : 0
+        opacity: isVisible && !hasLabel ? 0.9 - index * 0.1 : 0
       }}
       animate={{ rotate: 360 }}
-      transition={{ rotate: { repeat: Infinity, duration: 3 + index * 0.6, ease: 'linear' } }}
+      transition={{ rotate: { repeat: Infinity, duration: 2.8 + index * 0.5, ease: 'linear' } }}
     >
       <div
         style={{
@@ -81,11 +82,18 @@ function RibbonBead({ mouseX, mouseY, index, isVisible, hasLabel }) {
 }
 
 export default function CustomCursor({ cursorState }) {
-  const [mode, setMode] = useState('ribbon'); // 'ribbon' | 'orbital' | 'crosshair' | 'halo'
+  const [mode, setMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('portfolio_cursor_mode') || 'multi';
+    }
+    return 'multi';
+  });
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
   const [ripples, setRipples] = useState([]);
+  const [sparks, setSparks] = useState([]);
+  const lastSparkTime = useRef(0);
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
@@ -96,11 +104,32 @@ export default function CustomCursor({ cursorState }) {
   const midX = useSpring(mouseX, { damping: 26, stiffness: 220, mass: 0.35 });
   const midY = useSpring(mouseY, { damping: 26, stiffness: 220, mass: 0.35 });
 
+  const handleModeChange = (nextMode) => {
+    setMode(nextMode);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('portfolio_cursor_mode', nextMode);
+    }
+  };
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
+
+      // Spawn trailing spark particles in 'particles' or 'multi' mode
+      const now = performance.now();
+      if ((mode === 'particles' || mode === 'multi') && now - lastSparkTime.current > 45) {
+        lastSparkTime.current = now;
+        const id = now + Math.random();
+        const dx = (Math.random() - 0.5) * 26;
+        const dy = (Math.random() - 0.5) * 26 - 8;
+        const color = Math.random() > 0.4 ? '#C75D35' : '#D09B65';
+        setSparks((prev) => [...prev.slice(-10), { id, x: e.clientX, y: e.clientY, dx, dy, color }]);
+        setTimeout(() => {
+          setSparks((prev) => prev.filter((s) => s.id !== id));
+        }, 480);
+      }
     };
 
     const handleMouseOver = (e) => {
@@ -144,7 +173,7 @@ export default function CustomCursor({ cursorState }) {
       window.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, [mouseX, mouseY, isVisible, mode]);
 
   const hasLabel = Boolean(cursorState?.label);
   const labelText = cursorState?.label || '';
@@ -167,8 +196,8 @@ export default function CustomCursor({ cursorState }) {
         {ripples.map((r) => (
           <motion.div
             key={r.id}
-            initial={{ scale: 0.2, opacity: 0.75 }}
-            animate={{ scale: 2.6, opacity: 0 }}
+            initial={{ scale: 0.2, opacity: 0.8 }}
+            animate={{ scale: 2.8, opacity: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             style={{ left: r.x, top: r.y, translateX: '-50%', translateY: '-50%' }}
@@ -177,8 +206,29 @@ export default function CustomCursor({ cursorState }) {
         ))}
       </AnimatePresence>
 
-      {/* MODE 1: Fluid Ribbon Trail */}
-      {mode === 'ribbon' &&
+      {/* Trailing Spark Particles (Active in Multi & Sparks modes) */}
+      <AnimatePresence>
+        {(mode === 'particles' || mode === 'multi') &&
+          !hasLabel &&
+          sparks.map((s) => (
+            <motion.div
+              key={s.id}
+              initial={{ x: s.x, y: s.y, scale: 1, opacity: 0.85 }}
+              animate={{ x: s.x + s.dx, y: s.y + s.dy, scale: 0, opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              style={{
+                translateX: '-50%',
+                translateY: '-50%',
+                backgroundColor: s.color
+              }}
+              className="hidden md:block pointer-events-none fixed top-0 left-0 w-1.5 h-1.5 rounded-full z-[9993]"
+            />
+          ))}
+      </AnimatePresence>
+
+      {/* Fluid Ribbon Trail (Active in Multi & Ribbon modes) */}
+      {(mode === 'ribbon' || mode === 'multi') &&
         Array.from({ length: 7 }).map((_, i) => (
           <RibbonBead
             key={`ribbon-${i}`}
@@ -190,9 +240,9 @@ export default function CustomCursor({ cursorState }) {
           />
         ))}
 
-      {/* MODE 2: Orbital Constellation Moons */}
-      {mode === 'orbital' &&
-        Array.from({ length: 6 }).map((_, i) => (
+      {/* Orbital Constellation Moons (Active in Multi & Orbital modes) */}
+      {(mode === 'orbital' || mode === 'multi') &&
+        Array.from({ length: mode === 'multi' ? 3 : 6 }).map((_, i) => (
           <OrbitingMoon
             key={`orbit-${i}`}
             index={i}
@@ -203,34 +253,18 @@ export default function CustomCursor({ cursorState }) {
           />
         ))}
 
-      {/* MODE 3: Architectural Designer Crosshair */}
+      {/* Architectural Designer Crosshair (Active in Crosshair mode) */}
       {mode === 'crosshair' && isVisible && !hasLabel && (
         <>
           <motion.div
-            className="hidden md:block pointer-events-none fixed top-0 left-0 z-[9995] h-[1px] w-8 bg-[#C75D35]/70"
+            className="hidden md:block pointer-events-none fixed top-0 left-0 z-[9995] h-[1px] w-10 bg-[#C75D35]/80"
             style={{ x: fastX, y: fastY, translateX: '-50%', translateY: '-50%' }}
           />
           <motion.div
-            className="hidden md:block pointer-events-none fixed top-0 left-0 z-[9995] w-[1px] h-8 bg-[#C75D35]/70"
+            className="hidden md:block pointer-events-none fixed top-0 left-0 z-[9995] w-[1px] h-10 bg-[#C75D35]/80"
             style={{ x: fastX, y: fastY, translateX: '-50%', translateY: '-50%' }}
           />
         </>
-      )}
-
-      {/* MODE 4: Warm Spotlight Halo */}
-      {mode === 'halo' && isVisible && !hasLabel && (
-        <motion.div
-          className="hidden md:block pointer-events-none fixed top-0 left-0 z-[9994] rounded-full"
-          style={{
-            x: midX,
-            y: midY,
-            translateX: '-50%',
-            translateY: '-50%',
-            width: isHoveringInteractive ? 90 : 68,
-            height: isHoveringInteractive ? 90 : 68,
-            background: 'radial-gradient(circle, rgba(199,93,53,0.22) 0%, rgba(199,93,53,0) 70%)'
-          }}
-        />
       )}
 
       {/* Magnetic Outer Ring / Contextual Label Pill */}
@@ -297,15 +331,15 @@ export default function CustomCursor({ cursorState }) {
       />
 
       {/* Bottom-Right Live Cursor Animation Switcher */}
-      <div className="hidden md:flex fixed bottom-5 right-5 z-[120] items-center gap-1 p-1 rounded-full bg-[#FFFFFF]/92 backdrop-blur-xl border-2 border-[#2B231D]/20 shadow-lg font-mono text-[10px]">
-        <span className="px-2 text-[#382E27] font-bold uppercase tracking-wider">Cursor:</span>
+      <div className="hidden md:flex fixed bottom-5 right-5 z-[120] items-center gap-1 p-1.5 rounded-full bg-[#FFFFFF]/95 backdrop-blur-xl border-2 border-[#2B231D]/25 shadow-xl font-mono text-[10px]">
+        <span className="px-2 text-[#2B231D] font-bold uppercase tracking-wider">Cursor:</span>
         {CURSOR_MODES.map((m) => {
           const Icon = m.icon;
           const active = mode === m.id;
           return (
             <button
               key={m.id}
-              onClick={() => setMode(m.id)}
+              onClick={() => handleModeChange(m.id)}
               className={`px-2.5 py-1 rounded-full flex items-center gap-1 font-bold transition-all ${
                 active
                   ? 'bg-[#2B231D] text-white shadow-xs'
