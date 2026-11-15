@@ -298,7 +298,7 @@ export default function ContactFooter({ setCursorState, onNavigate }) {
                           strokeLinecap="round"
                           initial={{ strokeDashoffset: 402 }}
                           whileInView={{ strokeDashoffset: 60 }}
-                          viewport={{ once: false }}
+                          viewport={{ once: true }}
                           transition={{ duration: 1.5, ease: "easeOut" }}
                           style={{ strokeDasharray: 402 }}
                         />

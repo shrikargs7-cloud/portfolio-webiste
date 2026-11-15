@@ -72,62 +72,32 @@ export default function FeaturedCaseStudies({ setCursorState }) {
               top: `calc(3.5rem + ${idx * 24}px)`
             }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.94 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -4 }}
-              className="w-full h-full max-h-[78vh] overflow-hidden max-w-7xl bg-[#FFFFFF]/95 backdrop-blur-2xl p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 shadow-[0_-12px_36px_rgba(43,35,29,0.12)] hover:shadow-[0_20px_50px_rgba(199,93,53,0.18)] border-2 border-[#2B231D]/25 hover:border-[#C75D35] rounded-3xl transition-all duration-300 group relative"
+            <div
+              className="w-full h-full max-h-[78vh] overflow-hidden max-w-7xl bg-[#FFFFFF] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 shadow-[0_-12px_36px_rgba(43,35,29,0.10)] hover:shadow-[0_20px_50px_rgba(199,93,53,0.16)] border-2 border-[#2B231D]/25 hover:border-[#C75D35] rounded-3xl transition-all duration-300 group relative"
             >
               
               <div className="flex-1 space-y-3 sm:space-y-4 md:space-y-5 flex flex-col justify-center min-w-0">
-                <motion.span 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }} transition={{ delay: 0.3 }}
-                  className="font-google text-xs md:text-sm font-bold text-[#C75D35] tracking-wide uppercase"
-                >
+                <span className="font-google text-xs md:text-sm font-bold text-[#C75D35] tracking-wide uppercase">
                   0{idx + 1} — {project.category.split('•')[0].trim()}
-                </motion.span>
+                </span>
                 
-                <motion.h3 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ delay: 0.4 }}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-google font-semibold text-[#2B231D] tracking-tight leading-[1.15]"
-                >
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-google font-semibold text-[#2B231D] tracking-tight leading-[1.15]">
                   {project.title}
-                </motion.h3>
+                </h3>
                 
-                <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ delay: 0.5 }}
-                  className="text-xs sm:text-sm md:text-base text-[#382E27] font-normal font-google max-w-lg leading-relaxed line-clamp-3 md:line-clamp-4"
-                >
+                <p className="text-xs sm:text-sm md:text-base text-[#382E27] font-normal font-google max-w-lg leading-relaxed line-clamp-3 md:line-clamp-4">
                   {project.desc}
-                </motion.p>
+                </p>
 
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }} transition={{ delay: 0.6 }}
-                  className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2"
-                >
+                <div className="flex flex-wrap gap-1.5 md:gap-2 pt-1 md:pt-2">
                   {project.technologies.slice(0, 4).map((tech, i) => (
                     <span key={i} className="px-2.5 py-1 md:px-3 md:py-1 rounded-full bg-[#F5F1EB] border border-[#2B231D]/20 text-[#2B231D] font-google text-[10px] md:text-xs font-semibold hover:bg-[#FFFFFF] transition-colors shadow-xs">
                       {tech}
                     </span>
                   ))}
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ delay: 0.7 }}
-                  className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4"
-                >
+                <div className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4">
                   <button
                     onClick={() => setSelectedProject(project)}
                     onMouseEnter={() => setCursorState && setCursorState({ label: 'Details' })}
@@ -149,7 +119,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                       <Github className="w-4 h-4 md:w-5 md:h-5" />
                     </a>
                   )}
-                </motion.div>
+                </div>
               </div>
 
               {/* Animated Floating Data UI / Image */}
@@ -226,7 +196,7 @@ export default function FeaturedCaseStudies({ setCursorState }) {
                 </motion.div>
               </motion.div>
 
-            </motion.div>
+            </div>
           </div>
         ))}
       </div>

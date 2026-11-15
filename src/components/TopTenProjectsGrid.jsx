@@ -263,13 +263,8 @@ export default function TopTenProjectsGrid({ setCursorState }) {
         {/* 10-Project Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {visibleProjects.map((project) => (
-            <motion.div
+            <div
               key={project.id}
-              layout
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.3 }}
               className="group p-6 sm:p-7 rounded-3xl bg-[#FFFFFF] border-2 border-[#2B231D]/25 hover:border-[#C75D35] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5"
             >
               <div className="space-y-3">
@@ -368,7 +363,7 @@ export default function TopTenProjectsGrid({ setCursorState }) {
                   <span>Overview</span>
                 </button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
