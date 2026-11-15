@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layers } from 'lucide-react';
 import FeaturedCaseStudies from '../components/FeaturedCaseStudies';
+import TopTenProjectsGrid from '../components/TopTenProjectsGrid';
 import PlaygroundGrid from '../components/PlaygroundGrid';
 import WebDesignList from '../components/WebDesignList';
 import CertificatesGallery from '../components/CertificatesGallery';
@@ -22,6 +23,9 @@ export default function ProjectsPage({ setCursorState }) {
           Deep dive into flagship production applications, embedded IoT experiments, digital surfaces, and verified credentials.
         </p>
       </div>
+
+      {/* Top 10 GitHub Repositories & Projects */}
+      <TopTenProjectsGrid setCursorState={setCursorState} />
 
       {/* Featured Case Studies */}
       <FeaturedCaseStudies setCursorState={setCursorState} />

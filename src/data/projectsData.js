@@ -443,8 +443,8 @@ export const PROJECTS_DATA = [
       'Hardware-software telemetry interfaces',
       'Smart retail customer flow optimization'
     ],
-    github: 'https://github.com/shrikargs7-cloud',
-    demo: null,
+    github: 'https://github.com/shrikargs7-cloud/smart-shopping-trolley-iot',
+    demo: 'https://smart-shopping-one.vercel.app',
     color: 'border-purple-500/30 bg-purple-500/5 hover:border-purple-400/80',
     accent: 'text-purple-400'
   }
